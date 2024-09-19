@@ -1,0 +1,1891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling">
+    <head>
+        <styling></styling>
+        <layout></layout>
+    </head>
+    <body>
+        <div>
+            <p begin="00:00:14.360" end="00:00:16.800">
+                <span>-Bonsoir et bienvenue</span>
+                <br></br>
+                <span>dans le &#34;19h30&#34;.</span>
+            </p>
+            <p begin="00:00:16.880" end="00:00:19.760">
+                <span>Le plan canicule a été activé</span>
+                <br></br>
+                <span>dans plusieurs cantons.</span>
+            </p>
+            <p begin="00:00:19.840" end="00:00:23.320">
+                <span>Sur les chantiers, on s&#39;organise</span>
+                <br></br>
+                <span>pour limiter les risques.</span>
+            </p>
+            <p begin="00:00:23.400" end="00:00:26.920">
+                <span>Le monde du travail tente</span>
+                <br></br>
+                <span>de s&#39;adapter à ce problème,</span>
+            </p>
+            <p begin="00:00:27.000" end="00:00:30.640">
+                <span>comme nous l&#39;expliquera</span>
+                <br></br>
+                <span>Pascal Jeannerat.</span>
+            </p>
+            <p begin="00:00:31.640" end="00:00:33.640">
+                <span>Yannick Buttet va-t-il rester</span>
+            </p>
+            <p begin="00:00:33.720" end="00:00:36.800">
+                <span>à la tête de la Chambre</span>
+                <br></br>
+                <span>valaisanne de tourisme?</span>
+            </p>
+            <p begin="00:00:36.880" end="00:00:40.760">
+                <span>La décision pourrait tomber ce soir.</span>
+            </p>
+            <p begin="00:00:40.880" end="00:00:45.800">
+                <span>La pression est forte pour que</span>
+                <br></br>
+                <span>l&#39;ancien conseiller national PDC,</span>
+            </p>
+            <p begin="00:00:45.920" end="00:00:49.320">
+                <span>condamné pour son comportement</span>
+                <br></br>
+                <span>envers des femmes, soit destitué.</span>
+            </p>
+            <p begin="00:00:49.600" end="00:00:51.960">
+                <span>Nous irons à la frontière française,</span>
+            </p>
+            <p begin="00:00:52.040" end="00:00:54.600">
+                <span>où les douaniers</span>
+                <br></br>
+                <span>ont du travail cet été.</span>
+            </p>
+            <p begin="00:00:54.680" end="00:01:00.120">
+                <span>Entre l&#39;Euro et les Jeux olympiques,</span>
+                <br></br>
+                <span>les contrôles ont été renforcés.</span>
+            </p>
+            <p begin="00:01:01.600" end="00:01:05.800">
+                <span>Et puis ce débat qui agite le monde</span>
+                <br></br>
+                <span>de l&#39;aviation: l&#39;Union européenne</span>
+            </p>
+            <p begin="00:01:05.880" end="00:01:10.800">
+                <span>envisage de permettre de n&#39;avoir plus</span>
+                <br></br>
+                <span>qu&#39;un seul pilote à bord des avions.</span>
+            </p>
+            <p begin="00:01:15.120" end="00:01:18.680">
+                <span>Et enfin, nous céderons</span>
+                <br></br>
+                <span>à la tentation d&#39;une bonne glace.</span>
+            </p>
+            <p begin="00:01:18.760" end="00:01:24.440">
+                <span>Artisanale ou industrielle,</span>
+                <br></br>
+                <span>il faut savoir faire la différence.</span>
+            </p>
+            <p begin="00:01:27.360" end="00:01:31.840">
+                <span>La journée a été chaude en Suisse.</span>
+            </p>
+            <p begin="00:01:31.920" end="00:01:35.320">
+                <span>Cela fait le bonheur des vacanciers,</span>
+            </p>
+            <p begin="00:01:35.400" end="00:01:42.920">
+                <span>mais pas celui des personnes</span>
+                <br></br>
+                <span>qui travaillent en extérieur.</span>
+            </p>
+            <p begin="00:01:44.600" end="00:01:47.160">
+                <span>-Les ouvriers ne sont pas gâtés.</span>
+            </p>
+            <p begin="00:01:47.240" end="00:01:50.920">
+                <span>Après les intempéries,</span>
+                <br></br>
+                <span>le retour du soleil qui tape fort.</span>
+            </p>
+            <p begin="00:01:51.000" end="00:01:53.680">
+                <span>La barre des 30 degrés</span>
+                <br></br>
+                <span>a été dépassée</span>
+            </p>
+            <p begin="00:01:53.760" end="00:01:56.920">
+                <span>dans certains endroits</span>
+                <br></br>
+                <span>de Suisse romande.</span>
+            </p>
+            <p begin="00:01:57.320" end="00:02:02.080">
+                <span>-On essaie d’avancer le boulot,</span>
+                <br></br>
+                <span>mais parfois, c’est difficile.</span>
+            </p>
+            <p begin="00:02:02.480" end="00:02:07.760">
+                <span>-En Valais, le plan canicule s’étend</span>
+                <br></br>
+                <span>aussi aux travailleurs en extérieur.</span>
+            </p>
+            <p begin="00:02:07.840" end="00:02:12.960">
+                <span>Avec une alerte de degré 3,</span>
+                <br></br>
+                <span>la distribution d’eau,</span>
+            </p>
+            <p begin="00:02:13.040" end="00:02:15.400">
+                <span>de protège-nuques</span>
+                <br></br>
+                <span>et de crème solaire est de rigueur.</span>
+            </p>
+            <p begin="00:02:15.640" end="00:02:18.360">
+                <span>-Tract canicule, mesures à prendre,</span>
+                <br></br>
+                <span>mais vous connaissez.</span>
+            </p>
+            <p begin="00:02:18.560" end="00:02:21.040">
+                <span>-Les réflexes les plus évidents</span>
+                <br></br>
+                <span>ont été assimilés.</span>
+            </p>
+            <p begin="00:02:21.120" end="00:02:23.160">
+                <span>Mais les syndicats</span>
+                <br></br>
+                <span>aimeraient aller plus loin,</span>
+            </p>
+            <p begin="00:02:23.240" end="00:02:25.560">
+                <span>comme commencer le travail plus tôt.</span>
+            </p>
+            <p begin="00:02:25.800" end="00:02:27.600">
+                <span>-C&#39;est une disposition des communes.</span>
+            </p>
+            <p begin="00:02:27.680" end="00:02:29.880">
+                <span>Pas toutes les communes sont d’accord</span>
+            </p>
+            <p begin="00:02:29.960" end="00:02:32.040">
+                <span>de commencer les travaux avant 06h00.</span>
+            </p>
+            <p begin="00:02:32.120" end="00:02:35.200">
+                <span>L&#39;autre est de faire des pauses</span>
+                <br></br>
+                <span>toutes les heures.</span>
+            </p>
+            <p begin="00:02:35.280" end="00:02:39.800">
+                <span>Il serait peut-être temps de cesser</span>
+                <br></br>
+                <span>les rapports de travail à 35 degrés.</span>
+            </p>
+            <p begin="00:02:40.160" end="00:02:43.640">
+                <span>-Les montagnes</span>
+                <br></br>
+                <span>ne sont pas épargnées,</span>
+            </p>
+            <p begin="00:02:43.720" end="00:02:46.280">
+                <span>il fait déjà 25 degrés</span>
+                <br></br>
+                <span>en fin de matinée.</span>
+            </p>
+            <p begin="00:02:46.360" end="00:02:49.920">
+                <span>Pour ce patron, il est normal de</span>
+                <br></br>
+                <span>lever le pied dans ces conditions.</span>
+            </p>
+            <p begin="00:02:50.240" end="00:02:55.120">
+                <span>-Utiliser le maximum de machines, on</span>
+                <br></br>
+                <span>essaie d’enlever les travaux lourds.</span>
+            </p>
+            <p begin="00:02:55.200" end="00:02:57.680">
+                <span>Mais modifier les horaires,</span>
+            </p>
+            <p begin="00:02:57.760" end="00:03:00.200">
+                <span>c’est très difficile.</span>
+            </p>
+            <p begin="00:03:00.280" end="00:03:05.240">
+                <span>On est sur un petit chantier,</span>
+                <br></br>
+                <span>on a un petit immeuble en face.</span>
+            </p>
+            <p begin="00:03:05.320" end="00:03:08.200">
+                <span>Si je viens à 05h30 le matin</span>
+            </p>
+            <p begin="00:03:08.280" end="00:03:12.000">
+                <span>et que je commence à travailler,</span>
+                <br></br>
+                <span>on va pas être content.</span>
+            </p>
+            <p begin="00:03:12.400" end="00:03:14.880">
+                <span>-L’année dernière,</span>
+                <br></br>
+                <span>le Canton de Genève</span>
+            </p>
+            <p begin="00:03:14.960" end="00:03:18.800">
+                <span>avait décidé d’interdire</span>
+                <br></br>
+                <span>des travaux pénibles l’après-midi.</span>
+            </p>
+            <p begin="00:03:18.880" end="00:03:22.560">
+                <span>Une première</span>
+                <br></br>
+                <span>qui n’a pas été reconduite.</span>
+            </p>
+            <p begin="00:03:22.640" end="00:03:25.080">
+                <span>La vague de chaleur</span>
+                <br></br>
+                <span>devrait s’estomper</span>
+            </p>
+            <p begin="00:03:25.160" end="00:03:27.280">
+                <span>d’ici la fin de la semaine.</span>
+            </p>
+            <p begin="00:03:29.120" end="00:03:32.760">
+                <span>-Le monde du travail doit s&#39;adapter,</span>
+                <br></br>
+                <span>mettre des règles.</span>
+            </p>
+            <p begin="00:03:32.840" end="00:03:36.360">
+                <span>Et c&#39;est allé vite dernièrement.</span>
+            </p>
+            <p begin="00:03:37.040" end="00:03:39.080">
+                <span>-Oui, notre continent est celui</span>
+            </p>
+            <p begin="00:03:39.160" end="00:03:41.160">
+                <span>où le réchauffement a l&#39;effet</span>
+            </p>
+            <p begin="00:03:41.240" end="00:03:42.800">
+                <span>le plus rapide</span>
+            </p>
+            <p begin="00:03:42.880" end="00:03:47.040">
+                <span>sur le nombre de travailleurs</span>
+                <br></br>
+                <span>touchés par la chaleur excessive.</span>
+            </p>
+            <p begin="00:03:47.120" end="00:03:49.040">
+                <span>Plus 17 % en 20 ans.</span>
+            </p>
+            <p begin="00:03:49.080" end="00:03:53.840">
+                <span>29 % des travailleurs d&#39;Europe</span>
+                <br></br>
+                <span>et d&#39;Asie centrale sont concernés.</span>
+            </p>
+            <p begin="00:03:53.920" end="00:04:01.040">
+                <span>D&#39;autres régions en souffrent plus,</span>
+                <br></br>
+                <span>comme le Moyen-Orient ou l&#39;Afrique.</span>
+            </p>
+            <p begin="00:04:01.120" end="00:04:06.480">
+                <span>La chaleur excessive,</span>
+                <br></br>
+                <span>c&#39;est quand le corps risque</span>
+            </p>
+            <p begin="00:04:06.560" end="00:04:13.680">
+                <span>de ne plus se maintenir</span>
+                <br></br>
+                <span>sous les 37 degrés.</span>
+            </p>
+            <p begin="00:04:14.000" end="00:04:16.440">
+                <span>-Et cette chaleur tue.</span>
+            </p>
+            <p begin="00:04:16.520" end="00:04:19.200">
+                <span>-4&#39;200 morts directes en 2020,</span>
+            </p>
+            <p begin="00:04:19.280" end="00:04:22.400">
+                <span>selon l&#39;Organisation</span>
+                <br></br>
+                <span>internationale du travail,</span>
+            </p>
+            <p begin="00:04:22.480" end="00:04:26.680">
+                <span>des millions de malaises,</span>
+                <br></br>
+                <span>accidents induits, arrêts de travail,</span>
+            </p>
+            <p begin="00:04:26.760" end="00:04:30.560">
+                <span>et plus encore en incluant</span>
+                <br></br>
+                <span>les risques à long terme.</span>
+            </p>
+            <p begin="00:04:30.640" end="00:04:34.720">
+                <span>Le réchauffement climatique pèse</span>
+                <br></br>
+                <span>de plus en plus</span>
+            </p>
+            <p begin="00:04:34.800" end="00:04:47.880">
+                <span>sur la possibilité de travailler.</span>
+            </p>
+            <p begin="00:04:50.920" end="00:04:54.560">
+                <span>-La Chambre valaisanne de tourisme</span>
+                <br></br>
+                <span>débat en ce moment</span>
+            </p>
+            <p begin="00:04:54.640" end="00:04:59.000">
+                <span>du sort de Yannick Buttet,</span>
+                <br></br>
+                <span>son président depuis juin</span>
+            </p>
+            <p begin="00:04:59.080" end="00:05:02.880">
+                <span>et contre qui</span>
+                <br></br>
+                <span>une révocation a été demandée.</span>
+            </p>
+            <p begin="00:05:02.960" end="00:05:07.760">
+                <span>Y.Buttet a été condamné</span>
+                <br></br>
+                <span>deux fois pour contrainte</span>
+            </p>
+            <p begin="00:05:07.800" end="00:05:12.440">
+                <span>et attouchements à caractère sexuel.</span>
+            </p>
+            <p begin="00:05:14.400" end="00:05:16.960">
+                <span>-Yannick Buttet tout sourire.</span>
+            </p>
+            <p begin="00:05:17.040" end="00:05:20.560">
+                <span>En juin, il succède</span>
+                <br></br>
+                <span>au sénateur du Centre, Beat Rieder,</span>
+            </p>
+            <p begin="00:05:20.640" end="00:05:22.760">
+                <span>à la tête du tourisme valaisan.</span>
+            </p>
+            <p begin="00:05:22.840" end="00:05:24.280">
+                <span>La nomination choque.</span>
+            </p>
+            <p begin="00:05:24.360" end="00:05:26.720">
+                <span>Pour le Collectif Féministe Valais,</span>
+            </p>
+            <p begin="00:05:26.800" end="00:05:31.160">
+                <span>Yannick Buttet, condamné deux fois</span>
+                <br></br>
+                <span>pour contrainte et attouchements,</span>
+            </p>
+            <p begin="00:05:31.240" end="00:05:33.080">
+                <span>n’a rien à faire à ce poste.</span>
+            </p>
+            <p begin="00:05:33.160" end="00:05:36.680">
+                <span>Une pétition, 11&#39;000 signatures,</span>
+                <br></br>
+                <span>demande sa révocation.</span>
+            </p>
+            <p begin="00:05:36.960" end="00:05:39.600">
+                <span>-Le soutien va loin</span>
+                <br></br>
+                <span>dans la population.</span>
+            </p>
+            <p begin="00:05:39.680" end="00:05:42.560">
+                <span>Dans les partis,</span>
+                <br></br>
+                <span>ça va de gauche à droite.</span>
+            </p>
+            <p begin="00:05:42.640" end="00:05:46.360">
+                <span>Beaucoup de messieurs disent:</span>
+                <br></br>
+                <span>&#34;C&#39;est bon, maintenant.&#34;</span>
+            </p>
+            <p begin="00:05:46.440" end="00:05:49.040">
+                <span>&#34;Les copains, la politique d&#39;avant,</span>
+            </p>
+            <p begin="00:05:49.120" end="00:05:52.360">
+                <span>on en a marre,</span>
+                <br></br>
+                <span>montrez-nous autre chose.&#34;</span>
+            </p>
+            <p begin="00:05:52.680" end="00:05:54.880">
+                <span>-Avec ce poste, Yannick Buttet,</span>
+            </p>
+            <p begin="00:05:54.960" end="00:05:58.600">
+                <span>condamné en 2021 pour attouchements</span>
+                <br></br>
+                <span>à caractère sexuel,</span>
+            </p>
+            <p begin="00:05:58.680" end="00:06:02.200">
+                <span>devient le supérieur indirect</span>
+                <br></br>
+                <span>d’une de ses victimes.</span>
+            </p>
+            <p begin="00:06:02.280" end="00:06:04.720">
+                <span>Valais Promotion balaie le problème</span>
+            </p>
+            <p begin="00:06:04.800" end="00:06:08.760">
+                <span>en proposant à cette employée</span>
+                <br></br>
+                <span>le télétravail.</span>
+            </p>
+            <p begin="00:06:09.960" end="00:06:11.880">
+                <span>-L’employeur a un devoir</span>
+            </p>
+            <p begin="00:06:11.960" end="00:06:13.600">
+                <span>de protection.</span>
+            </p>
+            <p begin="00:06:13.680" end="00:06:17.480">
+                <span>Le directeur du tourisme dit</span>
+                <br></br>
+                <span>qu’il va aménager</span>
+            </p>
+            <p begin="00:06:17.560" end="00:06:20.440">
+                <span>le temps de travail de l’employée.</span>
+            </p>
+            <p begin="00:06:20.520" end="00:06:27.480">
+                <span>On va pas réorganiser tout un service</span>
+                <br></br>
+                <span>pour faire plaisir à Yannick Buttet.</span>
+            </p>
+            <p begin="00:06:27.800" end="00:06:31.200">
+                <span>-En 2017, Yannick Buttet,</span>
+                <br></br>
+                <span>condamné pour contrainte,</span>
+            </p>
+            <p begin="00:06:31.280" end="00:06:33.680">
+                <span>doit quitter le Parlement fédéral.</span>
+            </p>
+            <p begin="00:06:33.760" end="00:06:37.120">
+                <span>Plusieurs élues évoquent</span>
+                <br></br>
+                <span>des comportements déplacés.</span>
+            </p>
+            <p begin="00:06:37.200" end="00:06:41.480">
+                <span>Aujourd’hui, les femmes du Centre</span>
+                <br></br>
+                <span>suisse espèrent sa révocation.</span>
+            </p>
+            <p begin="00:06:41.880" end="00:06:43.720">
+                <span>-C’était pas seulement</span>
+            </p>
+            <p begin="00:06:43.800" end="00:06:46.000">
+                <span>ces deux condamnations.</span>
+            </p>
+            <p begin="00:06:46.080" end="00:06:50.280">
+                <span>C’est aussi des expériences</span>
+                <br></br>
+                <span>personnelles qu’on avait avec lui.</span>
+            </p>
+            <p begin="00:06:50.360" end="00:06:58.320">
+                <span>C’est un scandale, cette décision</span>
+                <br></br>
+                <span>de la Chambre valaisanne.</span>
+            </p>
+            <p begin="00:06:58.720" end="00:07:02.280">
+                <span>-Ses potentiels soutiens</span>
+                <br></br>
+                <span>n’ont pas voulu s’exprimer.</span>
+            </p>
+            <p begin="00:07:04.280" end="00:07:07.000">
+                <span>-Cédric Jordan,</span>
+                <br></br>
+                <span>on vous retrouve à Sion.</span>
+            </p>
+            <p begin="00:07:07.080" end="00:07:10.000">
+                <span>Que sait-on de cette réunion ?</span>
+            </p>
+            <p begin="00:07:10.000" end="00:07:11.680">
+                <span>-Non, pas de décision.</span>
+            </p>
+            <p begin="00:07:11.680" end="00:07:14.560">
+                <span>On a vu les premiers membres</span>
+                <br></br>
+                <span>du comité</span>
+            </p>
+            <p begin="00:07:14.560" end="00:07:19.800">
+                <span>de la Chambre valaisanne de tourisme</span>
+                <br></br>
+                <span>quitter le bâtiment derrière moi</span>
+            </p>
+            <p begin="00:07:19.960" end="00:07:23.760">
+                <span>où ils sont réunis depuis 17h00.</span>
+            </p>
+            <p begin="00:07:23.920" end="00:07:30.360">
+                <span>Y.Buttet a été entendu pour laisser</span>
+                <br></br>
+                <span>libre champ aux délibérations.</span>
+            </p>
+            <p begin="00:07:30.520" end="00:07:36.440">
+                <span>C&#39;est une décision difficile.</span>
+            </p>
+            <p begin="00:07:36.600" end="00:07:44.920">
+                <span>Soit, la chambre propose</span>
+                <br></br>
+                <span>la destitution de Yannick Buttet,</span>
+            </p>
+            <p begin="00:07:45.080" end="00:07:49.600">
+                <span>et va dans le sens des féministes,</span>
+            </p>
+            <p begin="00:07:49.600" end="00:07:57.440">
+                <span>soit, elle maintient Yannick Buttet</span>
+                <br></br>
+                <span>dans ses fonctions</span>
+            </p>
+            <p begin="00:07:57.440" end="00:08:00.960">
+                <span>au risque d&#39;exacerber les tensions.</span>
+            </p>
+            <p begin="00:08:00.960" end="00:08:05.840">
+                <span>On discutait avec des membres</span>
+                <br></br>
+                <span>du collectif Femmes Valais,</span>
+            </p>
+            <p begin="00:08:05.840" end="00:08:11.840">
+                <span>si la destitution n&#39;est pas proposée,</span>
+                <br></br>
+                <span>elles organiseront une action choc.</span>
+            </p>
+            <p begin="00:08:12.000" end="00:08:16.040">
+                <span>Quoiqu&#39;il en ressorte,</span>
+                <br></br>
+                <span>le dégât d&#39;image est là.</span>
+            </p>
+            <p begin="00:08:16.040" end="00:08:21.360">
+                <span>Et on sait l&#39;importance de l&#39;image</span>
+                <br></br>
+                <span>quand on parle du tourisme.</span>
+            </p>
+            <p begin="00:08:21.520" end="00:08:25.560">
+                <span>Beaucoup nous disaient</span>
+                <br></br>
+                <span>ne pas comprendre</span>
+            </p>
+            <p begin="00:08:25.720" end="00:08:28.520">
+                <span>la naïveté dont fait preuve Y.Buttet</span>
+            </p>
+            <p begin="00:08:28.520" end="00:08:32.240">
+                <span>et le comité</span>
+                <br></br>
+                <span>de la Chambre valaisanne de tourisme</span>
+            </p>
+            <p begin="00:08:32.400" end="00:08:35.640">
+                <span>qui n&#39;ont pas su anticiper</span>
+                <br></br>
+                <span>les réactions</span>
+            </p>
+            <p begin="00:08:35.640" end="00:08:39.920">
+                <span>que ne manquerait pas de susciter</span>
+                <br></br>
+                <span>cette nomination.</span>
+            </p>
+            <p begin="00:08:40.080" end="00:08:42.440">
+                <span>On attend toujours la décision.</span>
+            </p>
+            <p begin="00:08:42.440" end="00:08:46.600">
+                <span>Le comité décidera-t-il la</span>
+                <br></br>
+                <span>destitution ou le maintien ?</span>
+            </p>
+            <p begin="00:08:46.600" end="00:08:53.600">
+                <span>C&#39;est une proposition qui devra être</span>
+                <br></br>
+                <span>avalisée par l&#39;assemblée générale.</span>
+            </p>
+            <p begin="00:08:53.600" end="00:09:01.080">
+                <span>Elle avait élu à l&#39;unanimité</span>
+                <br></br>
+                <span>Yannick Buttet en juin.</span>
+            </p>
+            <p begin="00:09:01.080" end="00:09:07.760">
+                <span>-En politique, l&#39;UDC était</span>
+                <br></br>
+                <span>dans le canton de Fribourg,</span>
+            </p>
+            <p begin="00:09:07.760" end="00:09:12.960">
+                <span>pour dénoncer</span>
+                <br></br>
+                <span>la politique d&#39;asile suisse.</span>
+            </p>
+            <p begin="00:09:15.880" end="00:09:19.920">
+                <span>-Le centre d’asile de Chevrilles</span>
+                <br></br>
+                <span>dans le canton de Fribourg.</span>
+            </p>
+            <p begin="00:09:20.000" end="00:09:22.240">
+                <span>C&#39;est à deux pas de là que l’UDC</span>
+            </p>
+            <p begin="00:09:22.320" end="00:09:25.360">
+                <span>a organisé sa conférence de presse</span>
+                <br></br>
+                <span>d&#39;été.</span>
+            </p>
+            <p begin="00:09:25.440" end="00:09:27.840">
+                <span>Le thème: le chaos de l&#39;asile.</span>
+            </p>
+            <p begin="00:09:29.000" end="00:09:31.560">
+                <span>-La population subit la criminalité</span>
+            </p>
+            <p begin="00:09:31.640" end="00:09:33.920">
+                <span>de l&#39;ouverture de ce centre.</span>
+            </p>
+            <p begin="00:09:34.000" end="00:09:36.480">
+                <span>-On voit les effets désastreux</span>
+            </p>
+            <p begin="00:09:36.560" end="00:09:39.880">
+                <span>de la politique d&#39;asile de Beat Jans.</span>
+            </p>
+            <p begin="00:09:40.240" end="00:09:43.520">
+                <span>-Beat Jans, c&#39;est</span>
+                <br></br>
+                <span>la nouvelle bête noire de l&#39;UDC.</span>
+            </p>
+            <p begin="00:09:43.600" end="00:09:45.520">
+                <span>En fonction depuis janvier,</span>
+            </p>
+            <p begin="00:09:45.600" end="00:09:49.160">
+                <span>le socialiste s&#39;est montré ferme</span>
+                <br></br>
+                <span>en matière d&#39;asile.</span>
+            </p>
+            <p begin="00:09:49.240" end="00:09:51.680">
+                <span>Il a accéléré les procédures</span>
+            </p>
+            <p begin="00:09:51.720" end="00:09:55.520">
+                <span>et encourage l&#39;intégration</span>
+                <br></br>
+                <span>professionnelle des requérants.</span>
+            </p>
+            <p begin="00:09:55.600" end="00:09:59.040">
+                <span>Mais pour l&#39;UDC,</span>
+                <br></br>
+                <span>ça n&#39;est que de la poudre aux yeux.</span>
+            </p>
+            <p begin="00:09:59.360" end="00:10:02.840">
+                <span>-Ce n&#39;étaient que des annonces,</span>
+                <br></br>
+                <span>mais rien n&#39;a changé.</span>
+            </p>
+            <p begin="00:10:02.920" end="00:10:05.680">
+                <span>On voit ses positions</span>
+                <br></br>
+                <span>au Conseil fédéral.</span>
+            </p>
+            <p begin="00:10:05.760" end="00:10:10.320">
+                <span>Il veut accueillir</span>
+                <br></br>
+                <span>plus de requérants d&#39;asile.</span>
+            </p>
+            <p begin="00:10:10.600" end="00:10:14.480">
+                <span>-Faux, rétorque le PS, qui prend</span>
+                <br></br>
+                <span>la défense de son ministre.</span>
+            </p>
+            <p begin="00:10:14.840" end="00:10:16.720">
+                <span>-C&#39;est un vieux disque rayé</span>
+            </p>
+            <p begin="00:10:16.800" end="00:10:18.320">
+                <span>que rejoue l&#39;UDC.</span>
+            </p>
+            <p begin="00:10:18.400" end="00:10:24.280">
+                <span>En réalité, le ministre agit,</span>
+                <br></br>
+                <span>demande des moyens supplémentaires</span>
+            </p>
+            <p begin="00:10:24.360" end="00:10:28.640">
+                <span>pour sécuriser, pour l&#39;encadrement</span>
+                <br></br>
+                <span>dans les centres fédéraux</span>
+            </p>
+            <p begin="00:10:28.720" end="00:10:32.560">
+                <span>et qui prend ses responsabilités.</span>
+            </p>
+            <p begin="00:10:32.960" end="00:10:37.520">
+                <span>-A la veille du 1er août, alors</span>
+                <br></br>
+                <span>que les autres partis sont au repos,</span>
+            </p>
+            <p begin="00:10:37.600" end="00:10:40.200">
+                <span>l&#39;UDC occupe le terrain médiatique</span>
+            </p>
+            <p begin="00:10:40.280" end="00:10:43.000">
+                <span>pour encourager</span>
+                <br></br>
+                <span>la récolte des signatures</span>
+            </p>
+            <p begin="00:10:43.080" end="00:10:46.240">
+                <span>pour son initiative</span>
+                <br></br>
+                <span>contre les abus de l&#39;asile.</span>
+            </p>
+            <p begin="00:10:47.360" end="00:10:49.560">
+                <span>-Rouven Gueissaz, chaque année,</span>
+            </p>
+            <p begin="00:10:49.640" end="00:10:52.880">
+                <span>l&#39;UDC revient</span>
+                <br></br>
+                <span>sur ses thèmes de prédilection.</span>
+            </p>
+            <p begin="00:10:52.880" end="00:10:55.280">
+                <span>-Oui, mais c&#39;est de bonne guerre.</span>
+            </p>
+            <p begin="00:10:55.280" end="00:11:00.240">
+                <span>Les autres partis reconnaissent aussi</span>
+                <br></br>
+                <span>à l&#39;UDC l&#39;effet marronnier.</span>
+            </p>
+            <p begin="00:11:00.240" end="00:11:04.680">
+                <span>Faire de la politique,</span>
+                <br></br>
+                <span>c&#39;est savoir dominer les narratifs.</span>
+            </p>
+            <p begin="00:11:04.680" end="00:11:08.040">
+                <span>L&#39;UDC le fait aux alentours</span>
+                <br></br>
+                <span>du premier août.</span>
+            </p>
+            <p begin="00:11:08.200" end="00:11:12.000">
+                <span>L&#39;année passée, le président</span>
+                <br></br>
+                <span>galvanise les troupes</span>
+            </p>
+            <p begin="00:11:12.000" end="00:11:15.800">
+                <span>depuis le sommet du Gothard</span>
+                <br></br>
+                <span>avec un drapeau suisse</span>
+            </p>
+            <p begin="00:11:15.960" end="00:11:19.160">
+                <span>à la veille des élections fédérales.</span>
+            </p>
+            <p begin="00:11:19.160" end="00:11:25.440">
+                <span>L&#39;année d&#39;avant, il traitait</span>
+                <br></br>
+                <span>la gauche de parasite.</span>
+            </p>
+            <p begin="00:11:25.600" end="00:11:29.800">
+                <span>Cette année, l&#39;asile est encore mis</span>
+                <br></br>
+                <span>en avant.</span>
+            </p>
+            <p begin="00:11:29.800" end="00:11:35.240">
+                <span>L&#39;UDC cherche à construire</span>
+                <br></br>
+                <span>un discours autour de la Suisse</span>
+            </p>
+            <p begin="00:11:35.360" end="00:11:37.520">
+                <span>qui doit défendre ses valeurs.</span>
+            </p>
+            <p begin="00:11:37.520" end="00:11:40.880">
+                <span>Le parti arrive mieux à faire passer</span>
+                <br></br>
+                <span>ce message</span>
+            </p>
+            <p begin="00:11:41.040" end="00:11:45.760">
+                <span>que ses adversaires.</span>
+            </p>
+            <p begin="00:11:45.760" end="00:11:54.480">
+                <span>-Trois fillettes ont été tuées</span>
+                <br></br>
+                <span>dans une agression au couteau</span>
+            </p>
+            <p begin="00:11:54.480" end="00:11:57.280">
+                <span>hier en Angleterre.</span>
+            </p>
+            <p begin="00:11:57.280" end="00:12:05.440">
+                <span>Cinq enfants et deux adultes</span>
+                <br></br>
+                <span>sont dans un état critique.</span>
+            </p>
+            <p begin="00:12:07.280" end="00:12:09.360">
+                <span>-Des fleurs et des peluches</span>
+            </p>
+            <p begin="00:12:09.440" end="00:12:13.880">
+                <span>en hommage aux trois filles décédées</span>
+                <br></br>
+                <span>âgées de 6, 7 et 9 ans,</span>
+            </p>
+            <p begin="00:12:13.960" end="00:12:18.480">
+                <span>et aux sept autres blessés graves,</span>
+                <br></br>
+                <span>après une attaque au couteau hier</span>
+            </p>
+            <p begin="00:12:18.560" end="00:12:24.800">
+                <span>lors d’un cours de danse</span>
+                <br></br>
+                <span>à Southport, près de Liverpool.</span>
+            </p>
+            <p begin="00:12:27.160" end="00:12:31.680">
+                <span>-Nous souffrons tous,</span>
+                <br></br>
+                <span>nous essayons tous de comprendre.</span>
+            </p>
+            <p begin="00:12:31.760" end="00:12:36.680">
+                <span>Des enfants innocents</span>
+                <br></br>
+                <span>qui vont à un cours</span>
+            </p>
+            <p begin="00:12:36.760" end="00:12:40.880">
+                <span>et ne rentrent pas chez eux,</span>
+                <br></br>
+                <span>c&#39;est horrible.</span>
+            </p>
+            <p begin="00:12:40.960" end="00:12:43.600">
+                <span>-C&#39;est une communauté</span>
+                <br></br>
+                <span>tellement soudée.</span>
+            </p>
+            <p begin="00:12:43.640" end="00:12:47.800">
+                <span>C&#39;est difficile d’imaginer</span>
+                <br></br>
+                <span>qu’une telle chose ait pu se passer</span>
+            </p>
+            <p begin="00:12:47.880" end="00:12:50.520">
+                <span>et ce que les familles ressentent.</span>
+            </p>
+            <p begin="00:12:50.880" end="00:12:54.320">
+                <span>-Hier, peu avant midi,</span>
+                <br></br>
+                <span>l&#39;assaillant, âgé de 17 ans,</span>
+            </p>
+            <p begin="00:12:54.400" end="00:12:56.160">
+                <span>est entré dans une salle</span>
+            </p>
+            <p begin="00:12:56.240" end="00:12:59.280">
+                <span>où se déroulait</span>
+                <br></br>
+                <span>une activité pour enfants.</span>
+            </p>
+            <p begin="00:12:59.400" end="00:13:03.360">
+                <span>Les adultes présents sur place</span>
+                <br></br>
+                <span>sont dans un état critique,</span>
+            </p>
+            <p begin="00:13:03.440" end="00:13:07.760">
+                <span>probablement en tentant</span>
+                <br></br>
+                <span>de protéger les enfants.</span>
+            </p>
+            <p begin="00:13:07.840" end="00:13:12.920">
+                <span>L&#39;assaillant a été arrêté,</span>
+                <br></br>
+                <span>ses motivations ne sont pas connues.</span>
+            </p>
+            <p begin="00:13:13.000" end="00:13:18.960">
+                <span>Le Premier ministre britannique</span>
+                <br></br>
+                <span>s’est rendu sur les lieux.</span>
+            </p>
+            <p begin="00:13:21.800" end="00:13:24.960">
+                <span>-Je suis très inquiet</span>
+            </p>
+            <p begin="00:13:25.040" end="00:13:27.000">
+                <span>des niveaux élevés</span>
+            </p>
+            <p begin="00:13:27.080" end="00:13:28.920">
+                <span>de criminalité au couteau</span>
+            </p>
+            <p begin="00:13:29.000" end="00:13:34.560">
+                <span>et je suis déterminé à ce que mon</span>
+                <br></br>
+                <span>gouvernement s&#39;attaque au problème.</span>
+            </p>
+            <p begin="00:13:35.000" end="00:13:37.720">
+                <span>-Le Royaume-Uni</span>
+                <br></br>
+                <span>connaît une recrudescence</span>
+            </p>
+            <p begin="00:13:37.800" end="00:13:39.880">
+                <span>des violences à l&#39;arme blanche.</span>
+            </p>
+            <p begin="00:13:39.960" end="00:13:44.000">
+                <span>Près de 50&#39;000 faits l’an passé,</span>
+                <br></br>
+                <span>deux fois plus qu’il y a dix ans.</span>
+            </p>
+            <p begin="00:13:45.200" end="00:13:48.320">
+                <span>-On vient de l’apprendre,</span>
+                <br></br>
+                <span>une intense explosion a été entendue</span>
+            </p>
+            <p begin="00:13:48.400" end="00:13:50.120">
+                <span>en banlieue sud de Beyrouth,</span>
+            </p>
+            <p begin="00:13:50.200" end="00:13:53.360">
+                <span>un bastion du mouvement armé chiite</span>
+                <br></br>
+                <span>du Hezbollah.</span>
+            </p>
+            <p begin="00:13:53.440" end="00:13:56.840">
+                <span>Une &#34;frappe ciblée&#34;</span>
+                <br></br>
+                <span>revendiquée par l’armée israélienne</span>
+            </p>
+            <p begin="00:13:56.920" end="00:13:59.160">
+                <span>contre un haut commandant</span>
+                <br></br>
+                <span>du Hezbollah,</span>
+            </p>
+            <p begin="00:13:59.240" end="00:14:01.560">
+                <span>accusé d&#39;être responsable</span>
+                <br></br>
+                <span>de l’attaque</span>
+            </p>
+            <p begin="00:14:01.640" end="00:14:07.200">
+                <span>qui a tué samedi douze enfants</span>
+                <br></br>
+                <span>dans le Golan annexé.</span>
+            </p>
+            <p begin="00:14:07.200" end="00:14:10.360">
+                <span>Tout cela vient de se passer.</span>
+            </p>
+            <p begin="00:14:10.360" end="00:14:13.080">
+                <span>Qu&#39;est-ce qu&#39;on en sait ?</span>
+            </p>
+            <p begin="00:14:13.240" end="00:14:16.360">
+                <span>-Les Israéliens assument</span>
+                <br></br>
+                <span>cette frappe.</span>
+            </p>
+            <p begin="00:14:16.360" end="00:14:20.280">
+                <span>Elle aurait été exécutée</span>
+                <br></br>
+                <span>par l&#39;armée israélienne</span>
+            </p>
+            <p begin="00:14:20.440" end="00:14:23.800">
+                <span>au coeur de Beyrouth,</span>
+                <br></br>
+                <span>la capitale libanaise.</span>
+            </p>
+            <p begin="00:14:23.960" end="00:14:30.320">
+                <span>On sait aussi que la personne visée</span>
+                <br></br>
+                <span>serait le numéro deux du Hezbollah.</span>
+            </p>
+            <p begin="00:14:30.320" end="00:14:34.880">
+                <span>C&#39;est donc la première fois</span>
+                <br></br>
+                <span>que l&#39;armée israélienne</span>
+            </p>
+            <p begin="00:14:35.000" end="00:14:39.440">
+                <span>s&#39;attaque à un responsable</span>
+                <br></br>
+                <span>d&#39;un aussi haut niveau.</span>
+            </p>
+            <p begin="00:14:39.600" end="00:14:45.840">
+                <span>Depuis le début de la guerre,</span>
+                <br></br>
+                <span>de violence permanente</span>
+            </p>
+            <p begin="00:14:45.840" end="00:14:50.960">
+                <span>entre le Hezbollah</span>
+                <br></br>
+                <span>et l&#39;armée israélienne,</span>
+            </p>
+            <p begin="00:14:50.960" end="00:14:55.520">
+                <span>Israël a tué 350 responsables</span>
+                <br></br>
+                <span>de la milice chiite.</span>
+            </p>
+            <p begin="00:14:55.520" end="00:15:00.240">
+                <span>Mais cette fois-ci, ce serait</span>
+                <br></br>
+                <span>à la tête du mouvement</span>
+            </p>
+            <p begin="00:15:00.400" end="00:15:05.240">
+                <span>qu&#39;Israël s&#39;attaque.</span>
+            </p>
+            <p begin="00:15:05.400" end="00:15:08.920">
+                <span>C&#39;est en réponse à la mort</span>
+                <br></br>
+                <span>de 12 enfants</span>
+            </p>
+            <p begin="00:15:09.080" end="00:15:12.280">
+                <span>dans le Golan en début de semaine.</span>
+            </p>
+            <p begin="00:15:12.280" end="00:15:17.400">
+                <span>Un drame qui a causé une intense</span>
+                <br></br>
+                <span>émotion ici en Israël.</span>
+            </p>
+            <p begin="00:15:17.560" end="00:15:20.080">
+                <span>Toujours selon l&#39;armée israélienne,</span>
+            </p>
+            <p begin="00:15:20.080" end="00:15:23.800">
+                <span>ce numéro deux du Hezbollah</span>
+                <br></br>
+                <span>qui aurait été exécuté,</span>
+            </p>
+            <p begin="00:15:23.800" end="00:15:26.440">
+                <span>on ne sait pas encore s&#39;il est mort,</span>
+            </p>
+            <p begin="00:15:26.440" end="00:15:33.640">
+                <span>il aurait été responsable</span>
+                <br></br>
+                <span>de cette frappe.</span>
+            </p>
+            <p begin="00:15:33.640" end="00:15:40.720">
+                <span>-Aux Jeux olympiques,</span>
+                <br></br>
+                <span>le triathlon masculin a été reporté</span>
+            </p>
+            <p begin="00:15:40.720" end="00:15:47.920">
+                <span>en raison du niveau de pollution</span>
+                <br></br>
+                <span>trop élevé dans la Seine.</span>
+            </p>
+            <p begin="00:15:47.920" end="00:15:53.960">
+                <span>D&#39;importants moyens</span>
+                <br></br>
+                <span>avaient pourtant été déployés</span>
+            </p>
+            <p begin="00:15:53.960" end="00:15:58.360">
+                <span>pour améliorer la qualité de l&#39;eau.</span>
+            </p>
+            <p begin="00:16:01.000" end="00:16:03.680">
+                <span>-Un report qui ne surprend personne,</span>
+            </p>
+            <p begin="00:16:03.760" end="00:16:08.160">
+                <span>surtout quand se baigner dans la</span>
+                <br></br>
+                <span>Seine n&#39;est pas encore d&#39;actualité.</span>
+            </p>
+            <p begin="00:16:08.400" end="00:16:14.400">
+                <span>-J&#39;irai quand ce sera moins gris,</span>
+                <br></br>
+                <span>voir où je nage.</span>
+            </p>
+            <p begin="00:16:14.480" end="00:16:18.200">
+                <span>-L&#39;eau est belle, là,</span>
+                <br></br>
+                <span>on pourrait presque s&#39;y baigner !</span>
+            </p>
+            <p begin="00:16:18.280" end="00:16:21.560">
+                <span>-C&#39;est la couleur</span>
+                <br></br>
+                <span>que doit avoir une rivière.</span>
+            </p>
+            <p begin="00:16:21.640" end="00:16:25.120">
+                <span>Je ne vois rien de problématique.</span>
+            </p>
+            <p begin="00:16:25.200" end="00:16:28.920">
+                <span>-Tant qu&#39;à faire,</span>
+                <br></br>
+                <span>on va aller dans une piscine.</span>
+            </p>
+            <p begin="00:16:29.320" end="00:16:31.480">
+                <span>-Après les pluies du week-end,</span>
+            </p>
+            <p begin="00:16:31.520" end="00:16:35.040">
+                <span>l&#39;eau n&#39;a pas eu le temps</span>
+                <br></br>
+                <span>de s&#39;épurer des bactéries.</span>
+            </p>
+            <p begin="00:16:35.120" end="00:16:36.840">
+                <span>Ce n&#39;est pas une surprise,</span>
+            </p>
+            <p begin="00:16:36.920" end="00:16:40.560">
+                <span>malgré 1,4 mia d&#39;euros investis</span>
+                <br></br>
+                <span>pour assainir la Seine.</span>
+            </p>
+            <p begin="00:16:40.640" end="00:16:44.720">
+                <span>Autre problème, les prévisions météo</span>
+                <br></br>
+                <span>pour les prochaines 48 h,</span>
+            </p>
+            <p begin="00:16:44.840" end="00:16:47.040">
+                <span>des orages importants.</span>
+            </p>
+            <p begin="00:16:48.040" end="00:16:50.520">
+                <span>-Il faudra plus de deux jours</span>
+            </p>
+            <p begin="00:16:50.600" end="00:16:52.920">
+                <span>pour atteindre la baignabilité.</span>
+            </p>
+            <p begin="00:16:53.000" end="00:16:55.800">
+                <span>Une fois que l&#39;eau</span>
+                <br></br>
+                <span>est arrivée en Seine,</span>
+            </p>
+            <p begin="00:16:55.880" end="00:16:59.160">
+                <span>il faut le temps qu&#39;elle s&#39;écoule.</span>
+            </p>
+            <p begin="00:16:59.520" end="00:17:04.440">
+                <span>-La tendance actuelle est donc de</span>
+                <br></br>
+                <span>passer d&#39;un triathlon à un duathlon.</span>
+            </p>
+            <p begin="00:17:04.520" end="00:17:08.080">
+                <span>Un plan B auquel les athlètes</span>
+                <br></br>
+                <span>sont habitués,</span>
+            </p>
+            <p begin="00:17:08.120" end="00:17:11.280">
+                <span>comme lors des derniers</span>
+                <br></br>
+                <span>championnats d&#39;Europe.</span>
+            </p>
+            <p begin="00:17:11.760" end="00:17:14.320">
+                <span>-Ce ne serait pas le pire scénario.</span>
+            </p>
+            <p begin="00:17:14.400" end="00:17:16.800">
+                <span>La course à pied est une discipline</span>
+            </p>
+            <p begin="00:17:16.880" end="00:17:18.440">
+                <span>que j&#39;aime bien.</span>
+            </p>
+            <p begin="00:17:18.520" end="00:17:22.680">
+                <span>Après, je suis venu ici</span>
+                <br></br>
+                <span>pour faire un triathlon.</span>
+            </p>
+            <p begin="00:17:23.440" end="00:17:27.960">
+                <span>-Un duathlon ne serait pas</span>
+                <br></br>
+                <span>défavorable à Adrien Briffod.</span>
+            </p>
+            <p begin="00:17:28.040" end="00:17:31.800">
+                <span>Mais tout le monde espère néanmoins</span>
+                <br></br>
+                <span>disputer un triathlon.</span>
+            </p>
+            <p begin="00:17:31.840" end="00:17:33.480">
+                <span>Aura-t-il lieu demain ?</span>
+            </p>
+            <p begin="00:17:33.560" end="00:17:36.480">
+                <span>Sera-t-il reporté à vendredi ?</span>
+            </p>
+            <p begin="00:17:36.560" end="00:17:38.920">
+                <span>Passera-t-on à un duathlon ?</span>
+            </p>
+            <p begin="00:17:39.000" end="00:17:44.000">
+                <span>Réponses probablement</span>
+                <br></br>
+                <span>la nuit prochaine.</span>
+            </p>
+            <p begin="00:17:45.800" end="00:17:49.280">
+                <span>-C&#39;en est déjà terminé, hélas,</span>
+                <br></br>
+                <span>pour Stan Wawrinka.</span>
+            </p>
+            <p begin="00:17:49.360" end="00:17:51.480">
+                <span>Le Vaudois s&#39;est montré solide,</span>
+            </p>
+            <p begin="00:17:51.560" end="00:17:56.480">
+                <span>mais est battu par l&#39;Australien</span>
+                <br></br>
+                <span>Alexei Popyrin, 6-4 7-5.</span>
+            </p>
+            <p begin="00:17:56.560" end="00:18:08.440">
+                <span>Il n&#39;y a plus aucun Suisse</span>
+                <br></br>
+                <span>dans le tournoi olympique de tennis.</span>
+            </p>
+            <p begin="00:18:10.160" end="00:18:14.680">
+                <span>Ce soir, une des stars de ces JO</span>
+                <br></br>
+                <span>pourrait décrocher une médaille.</span>
+            </p>
+            <p begin="00:18:14.760" end="00:18:19.600">
+                <span>La gymnaste américaine Simone Biles,</span>
+                <br></br>
+                <span>déjà quadruple championne olympique,</span>
+            </p>
+            <p begin="00:18:19.680" end="00:18:29.400">
+                <span>est une légende de son sport;</span>
+                <br></br>
+                <span>voici son portrait.</span>
+            </p>
+            <p begin="00:18:30.800" end="00:18:35.200">
+                <span>-Avec ses 23 titres mondiaux et</span>
+                <br></br>
+                <span>5 figures acrobatiques à son nom,</span>
+            </p>
+            <p begin="00:18:35.280" end="00:18:39.160">
+                <span>Simone Biles est la plus grande</span>
+                <br></br>
+                <span>gymnaste de l&#39;histoire.</span>
+            </p>
+            <p begin="00:18:39.240" end="00:18:42.480">
+                <span>A Paris, l&#39;Américaine</span>
+                <br></br>
+                <span>peut prolonger sa légende</span>
+            </p>
+            <p begin="00:18:42.560" end="00:18:47.480">
+                <span>qui a commencé en 2016 à Rio,</span>
+                <br></br>
+                <span>où elle remporte quatre titres.</span>
+            </p>
+            <p begin="00:18:47.920" end="00:18:50.440">
+                <span>-J&#39;ai attendu ça depuis longtemps.</span>
+            </p>
+            <p begin="00:18:50.520" end="00:18:53.320">
+                <span>Ca devient réalité !</span>
+            </p>
+            <p begin="00:18:54.120" end="00:18:56.320">
+                <span>-Le monde s&#39;intéresse à elle:</span>
+            </p>
+            <p begin="00:18:56.400" end="00:19:00.760">
+                <span>sa vie, c&#39;est la lumière,</span>
+                <br></br>
+                <span>mais aussi l&#39;ombre.</span>
+            </p>
+            <p begin="00:19:00.840" end="00:19:07.520">
+                <span>Netflix lui consacre une série</span>
+                <br></br>
+                <span>revenant sur sa santé mentale</span>
+            </p>
+            <p begin="00:19:07.600" end="00:19:11.000">
+                <span>exposée aux yeux du monde</span>
+                <br></br>
+                <span>aux JO de Tokyo.</span>
+            </p>
+            <p begin="00:19:11.080" end="00:19:17.080">
+                <span>Biles quitte la compétition,</span>
+                <br></br>
+                <span>rattrapée par son anxiété</span>
+            </p>
+            <p begin="00:19:17.160" end="00:19:21.560">
+                <span>et ses pertes de repères</span>
+                <br></br>
+                <span>dans les airs.</span>
+            </p>
+            <p begin="00:19:21.640" end="00:19:26.920">
+                <span>Simone Biles est aussi</span>
+                <br></br>
+                <span>une des victimes de Larry Nassar,</span>
+            </p>
+            <p begin="00:19:27.000" end="00:19:34.200">
+                <span>l&#39;ex-entraîneur ayant agressé</span>
+                <br></br>
+                <span>sexuellement 250 jeunes gymnastes.</span>
+            </p>
+            <p begin="00:19:36.640" end="00:19:38.920">
+                <span>-C&#39;est très dur de passer</span>
+            </p>
+            <p begin="00:19:39.000" end="00:19:42.200">
+                <span>par ce que j&#39;ai enduré.</span>
+            </p>
+            <p begin="00:19:42.280" end="00:19:45.040">
+                <span>C&#39;est aussi très dur d&#39;en parler.</span>
+            </p>
+            <p begin="00:19:45.560" end="00:19:50.160">
+                <span>-De retour à Paris,</span>
+                <br></br>
+                <span>elle a été acclamée par le public</span>
+            </p>
+            <p begin="00:19:50.240" end="00:19:52.040">
+                <span>lors des qualifications.</span>
+            </p>
+            <p begin="00:19:52.120" end="00:19:56.760">
+                <span>En plus du concours par équipe,</span>
+                <br></br>
+                <span>elle visera quatre autres médailles.</span>
+            </p>
+            <p begin="00:19:56.840" end="00:20:03.960">
+                <span>Des JO cinq étoiles, comme celles</span>
+                <br></br>
+                <span>que l&#39;on aperçoit dans ses yeux.</span>
+            </p>
+            <p begin="00:20:06.080" end="00:20:09.200">
+                <span>-Les JO ont aussi</span>
+                <br></br>
+                <span>des conséquences chez nous.</span>
+            </p>
+            <p begin="00:20:09.280" end="00:20:11.240">
+                <span>Avec la menace terroriste,</span>
+            </p>
+            <p begin="00:20:11.320" end="00:20:14.440">
+                <span>les contrôles aux frontières</span>
+                <br></br>
+                <span>sont renforcés.</span>
+            </p>
+            <p begin="00:20:14.520" end="00:20:22.280">
+                <span>Nous avons suivi</span>
+                <br></br>
+                <span>le travail des douaniers.</span>
+            </p>
+            <p begin="00:20:24.040" end="00:20:27.960">
+                <span>-Pièce d&#39;identité, carte grise</span>
+                <br></br>
+                <span>et permis de conduire.</span>
+            </p>
+            <p begin="00:20:28.040" end="00:20:30.360">
+                <span>-Douane de Moillessulaz (GE):</span>
+            </p>
+            <p begin="00:20:30.440" end="00:20:33.400">
+                <span>certains contrôles</span>
+                <br></br>
+                <span>se déroulent sans accroc.</span>
+            </p>
+            <p begin="00:20:33.480" end="00:20:38.400">
+                <span>Pour cet automobiliste,</span>
+                <br></br>
+                <span>c&#39;est plus compliqué.</span>
+            </p>
+            <p begin="00:20:38.400" end="00:20:42.840">
+                <span>Après ce contrôle,</span>
+                <br></br>
+                <span>cet individu peut repartir.</span>
+            </p>
+            <p begin="00:20:42.840" end="00:20:46.720">
+                <span>Cet été n&#39;est pas comme les autres</span>
+                <br></br>
+                <span>pour ces douaniers.</span>
+            </p>
+            <p begin="00:20:46.720" end="00:20:50.640">
+                <span>La menace terroriste est jugée</span>
+                <br></br>
+                <span>comme élevée en Suisse</span>
+            </p>
+            <p begin="00:20:50.640" end="00:20:52.680">
+                <span>à cause de l&#39;Euro et des JO.</span>
+            </p>
+            <p begin="00:20:52.680" end="00:20:56.080">
+                <span>Les contrôles aux frontières</span>
+                <br></br>
+                <span>ont été renforcés.</span>
+            </p>
+            <p begin="00:20:56.800" end="00:20:58.920">
+                <span>-Nous contrôlons la circulation</span>
+            </p>
+            <p begin="00:20:59.000" end="00:21:01.400">
+                <span>des marchandises et des personnes.</span>
+            </p>
+            <p begin="00:21:01.480" end="00:21:08.880">
+                <span>On regarde si ces personnes</span>
+                <br></br>
+                <span>présentent une menace pour la Suisse.</span>
+            </p>
+            <p begin="00:21:09.720" end="00:21:13.480">
+                <span>-Automobilistes et passagers</span>
+                <br></br>
+                <span>de trams transfrontaliers.</span>
+            </p>
+            <p begin="00:21:13.560" end="00:21:18.040">
+                <span>A Genève, les moyens de franchir</span>
+                <br></br>
+                <span>la frontière sont nombreux.</span>
+            </p>
+            <p begin="00:21:18.120" end="00:21:22.680">
+                <span>Les douaniers doivent avoir</span>
+                <br></br>
+                <span>les yeux partout.</span>
+            </p>
+            <p begin="00:21:24.800" end="00:21:27.000">
+                <span>-On compte 20 points de passage.</span>
+            </p>
+            <p begin="00:21:27.080" end="00:21:29.760">
+                <span>20 routes, une voie de tram</span>
+            </p>
+            <p begin="00:21:29.840" end="00:21:33.960">
+                <span>et une voie verte, pour le vélo.</span>
+            </p>
+            <p begin="00:21:34.800" end="00:21:38.680">
+                <span>-C&#39;est sur la voie verte</span>
+                <br></br>
+                <span>qu&#39;ils tombent sur une infraction.</span>
+            </p>
+            <p begin="00:21:39.080" end="00:21:41.000">
+                <span>-On a contrôlé un individu</span>
+            </p>
+            <p begin="00:21:41.080" end="00:21:42.640">
+                <span>arrivant de France,</span>
+            </p>
+            <p begin="00:21:42.720" end="00:21:44.920">
+                <span>sans document d&#39;identité.</span>
+            </p>
+            <p begin="00:21:45.000" end="00:21:48.440">
+                <span>On contrôle donc</span>
+                <br></br>
+                <span>ses effets personnels.</span>
+            </p>
+            <p begin="00:21:48.520" end="00:21:53.360">
+                <span>Il dissimulait des stupéfiants</span>
+                <br></br>
+                <span>pour revendre</span>
+            </p>
+            <p begin="00:21:53.440" end="00:21:56.680">
+                <span>et l&#39;attirail</span>
+                <br></br>
+                <span>du petit dealer de quartier.</span>
+            </p>
+            <p begin="00:21:56.760" end="00:22:00.680">
+                <span>T-shirt blanc et pantalon noir,</span>
+                <br></br>
+                <span>on le dirige à Moillesulaz.</span>
+            </p>
+            <p begin="00:22:01.040" end="00:22:04.760">
+                <span>-Faire plus de contrôles</span>
+                <br></br>
+                <span>serait un moyen de dissuasion</span>
+            </p>
+            <p begin="00:22:04.840" end="00:22:06.920">
+                <span>pour contrer toute menace.</span>
+            </p>
+            <p begin="00:22:07.000" end="00:22:11.760">
+                <span>Ce renforcement durera jusqu&#39;à</span>
+                <br></br>
+                <span>la fin des Jeux paralympiques.</span>
+            </p>
+            <p begin="00:22:13.200" end="00:22:20.480">
+                <span>-Les autorités européennes envisagent</span>
+                <br></br>
+                <span>d&#39;autoriser les vols de ligne</span>
+            </p>
+            <p begin="00:22:20.560" end="00:22:24.200">
+                <span>avec un seul pilote à bord</span>
+                <br></br>
+                <span>au lieu de deux.</span>
+            </p>
+            <p begin="00:22:24.280" end="00:22:30.400">
+                <span>Une idée</span>
+                <br></br>
+                <span>qui ne fait pas l&#39;unanimité.</span>
+            </p>
+            <p begin="00:22:32.040" end="00:22:35.600">
+                <span>-Chassé-croisé estival</span>
+                <br></br>
+                <span>à l&#39;aéroport de Genève.</span>
+            </p>
+            <p begin="00:22:35.680" end="00:22:40.080">
+                <span>Ces vacanciers se réjouissent</span>
+                <br></br>
+                <span>de prendre l&#39;avion,</span>
+            </p>
+            <p begin="00:22:40.160" end="00:22:43.120">
+                <span>mais pas</span>
+                <br></br>
+                <span>à n&#39;importe quelle condition.</span>
+            </p>
+            <p begin="00:22:43.600" end="00:22:47.240">
+                <span>-Un pilote dans le cockpit,</span>
+                <br></br>
+                <span>on n&#39;est pas rassurés.</span>
+            </p>
+            <p begin="00:22:47.320" end="00:22:49.200">
+                <span>On en aimerait deux ou trois.</span>
+            </p>
+            <p begin="00:22:49.280" end="00:22:52.240">
+                <span>-Les appareils sont plus performants</span>
+                <br></br>
+                <span>aussi.</span>
+            </p>
+            <p begin="00:22:52.320" end="00:22:57.000">
+                <span>L&#39;essentiel est d&#39;avoir un pilote.</span>
+            </p>
+            <p begin="00:22:57.080" end="00:23:01.120">
+                <span>-S&#39;il y a une défaillance,</span>
+                <br></br>
+                <span>c&#39;est bien d&#39;avoir le deuxième.</span>
+            </p>
+            <p begin="00:23:01.200" end="00:23:08.440">
+                <span>Il faut voir les mesures de sécurité</span>
+                <br></br>
+                <span>en cas de défaillance.</span>
+            </p>
+            <p begin="00:23:08.520" end="00:23:15.080">
+                <span>-Je suis stressée de prendre l&#39;avion,</span>
+                <br></br>
+                <span>donc s&#39;il n&#39;y a qu&#39;un pilote...</span>
+            </p>
+            <p begin="00:23:15.560" end="00:23:19.600">
+                <span>-Pour l&#39;instant, il y a toujours</span>
+                <br></br>
+                <span>deux pilotes aux commandes,</span>
+            </p>
+            <p begin="00:23:19.680" end="00:23:23.440">
+                <span>mais l&#39;UE envisage d&#39;assouplir</span>
+                <br></br>
+                <span>les réglementations.</span>
+            </p>
+            <p begin="00:23:23.520" end="00:23:28.160">
+                <span>Avec l&#39;A350, Airbus dispose déjà</span>
+                <br></br>
+                <span>d&#39;un avion conçu</span>
+            </p>
+            <p begin="00:23:28.240" end="00:23:30.960">
+                <span>pour une seule personne</span>
+                <br></br>
+                <span>dans le cockpit.</span>
+            </p>
+            <p begin="00:23:31.040" end="00:23:36.080">
+                <span>Swiss prévoit d&#39;utiliser</span>
+                <br></br>
+                <span>ce type d&#39;appareil à partir de 2025.</span>
+            </p>
+            <p begin="00:23:36.160" end="00:23:40.240">
+                <span>Un moyen d&#39;économiser du personnel.</span>
+            </p>
+            <p begin="00:23:41.080" end="00:23:42.720">
+                <span>-C&#39;est un progrès</span>
+            </p>
+            <p begin="00:23:42.800" end="00:23:44.600">
+                <span>en termes d&#39;efficacité.</span>
+            </p>
+            <p begin="00:23:44.680" end="00:23:48.160">
+                <span>Autrefois, il y avait cinq personnes</span>
+                <br></br>
+                <span>dans le cockpit.</span>
+            </p>
+            <p begin="00:23:48.240" end="00:23:51.960">
+                <span>Aujourd&#39;hui, il y en a deux.</span>
+            </p>
+            <p begin="00:23:52.040" end="00:23:55.600">
+                <span>-Réunis derrière ce slogan,</span>
+                <br></br>
+                <span>les pilotes s&#39;insurgent.</span>
+            </p>
+            <p begin="00:23:55.680" end="00:23:59.560">
+                <span>Des toilettes dans le cockpit,</span>
+                <br></br>
+                <span>c&#39;est de la science-fiction,</span>
+            </p>
+            <p begin="00:23:59.640" end="00:24:04.520">
+                <span>mais ce syndicat, une seule personne</span>
+                <br></br>
+                <span>aux commandes menace la sécurité.</span>
+            </p>
+            <p begin="00:24:05.360" end="00:24:07.680">
+                <span>-Il est important de pouvoir gérer</span>
+            </p>
+            <p begin="00:24:07.800" end="00:24:09.360">
+                <span>un problème en équipe,</span>
+            </p>
+            <p begin="00:24:09.440" end="00:24:12.080">
+                <span>et de ne pas prendre de décisions</span>
+                <br></br>
+                <span>seul.</span>
+            </p>
+            <p begin="00:24:12.440" end="00:24:15.800">
+                <span>-Malgré la pression sur les coûts</span>
+                <br></br>
+                <span>et le manque de personnel,</span>
+            </p>
+            <p begin="00:24:15.880" end="00:24:20.120">
+                <span>le secteur aérien ne peut pas</span>
+                <br></br>
+                <span>abaisser ses standards de sécurité.</span>
+            </p>
+            <p begin="00:24:20.160" end="00:24:24.320">
+                <span>Pour les compagnies aériennes,</span>
+                <br></br>
+                <span>c&#39;est un pari encore trop risqué.</span>
+            </p>
+            <p begin="00:24:25.400" end="00:24:29.440">
+                <span>-Savez-vous distinguer</span>
+            </p>
+            <p begin="00:24:29.520" end="00:24:32.760">
+                <span>une glace artisanale</span>
+                <br></br>
+                <span>d&#39;une glace industrielle?</span>
+            </p>
+            <p begin="00:24:32.840" end="00:24:39.360">
+                <span>Il n&#39;est visiblement</span>
+                <br></br>
+                <span>pas si facile de faire la différence.</span>
+            </p>
+            <p begin="00:24:39.440" end="00:24:44.280">
+                <span>Enquête sur ce qui se cache</span>
+                <br></br>
+                <span>dans nos glaces.</span>
+            </p>
+            <p begin="00:24:45.920" end="00:24:51.360">
+                <span>-En pot ou en cornet,</span>
+                <br></br>
+                <span>les glaces sont les stars de l&#39;été.</span>
+            </p>
+            <p begin="00:24:51.480" end="00:24:56.080">
+                <span>Saurez-vous reconnaître les glaces</span>
+                <br></br>
+                <span>artisanales et industrielles ?</span>
+            </p>
+            <p begin="00:24:56.160" end="00:24:59.920">
+                <span>Faisons le test à Genève</span>
+                <br></br>
+                <span>avec deux glaces à la vanille:</span>
+            </p>
+            <p begin="00:25:00.000" end="00:25:03.680">
+                <span>l&#39;une artisanale et l&#39;autre</span>
+                <br></br>
+                <span>achetée en grande surface.</span>
+            </p>
+            <p begin="00:25:04.080" end="00:25:06.400">
+                <span>-Je ne vois pas de différence.</span>
+            </p>
+            <p begin="00:25:06.480" end="00:25:10.160">
+                <span>-Celle-là est plus vanillée,</span>
+                <br></br>
+                <span>je préfère celle-ci.</span>
+            </p>
+            <p begin="00:25:10.240" end="00:25:14.120">
+                <span>-Celle-là est plus fraîche,</span>
+                <br></br>
+                <span>elle est plus glacée.</span>
+            </p>
+            <p begin="00:25:14.200" end="00:25:16.280">
+                <span>Celle-là fait plus mousse.</span>
+            </p>
+            <p begin="00:25:16.360" end="00:25:19.440">
+                <span>-Bien meilleure celle-ci.</span>
+            </p>
+            <p begin="00:25:20.000" end="00:25:22.400">
+                <span>-Difficile de ne pas se tromper.</span>
+            </p>
+            <p begin="00:25:22.480" end="00:25:26.680">
+                <span>Pour comprendre ce qu&#39;est une glace</span>
+                <br></br>
+                <span>artisanale, direction Lutry.</span>
+            </p>
+            <p begin="00:25:26.800" end="00:25:29.360">
+                <span>Ce responsable de production</span>
+            </p>
+            <p begin="00:25:29.440" end="00:25:32.000">
+                <span>confectionne</span>
+                <br></br>
+                <span>un sorbet à la framboise.</span>
+            </p>
+            <p begin="00:25:32.520" end="00:25:34.640">
+                <span>-Dans ma cuve,</span>
+            </p>
+            <p begin="00:25:34.720" end="00:25:37.360">
+                <span>j&#39;avais mis mon eau,</span>
+            </p>
+            <p begin="00:25:37.440" end="00:25:40.320">
+                <span>le sucre et un peu de framboises.</span>
+            </p>
+            <p begin="00:25:40.400" end="00:25:46.080">
+                <span>J&#39;ajoute le reste de framboises pour</span>
+                <br></br>
+                <span>refroidir et la recette est terminée.</span>
+            </p>
+            <p begin="00:25:46.880" end="00:25:49.080">
+                <span>-Autre critère</span>
+                <br></br>
+                <span>pour une glace artisanale:</span>
+            </p>
+            <p begin="00:25:49.160" end="00:25:51.560">
+                <span>la quantité d&#39;air incorporé</span>
+                <br></br>
+                <span>lors du turbinage.</span>
+            </p>
+            <p begin="00:25:51.640" end="00:25:53.880">
+                <span>Elle devrait être limitée à 25 %.</span>
+            </p>
+            <p begin="00:25:54.160" end="00:25:58.280">
+                <span>-Plus une glace est lourde,</span>
+                <br></br>
+                <span>plus elle sera de meilleure qualité</span>
+            </p>
+            <p begin="00:25:58.360" end="00:26:00.960">
+                <span>et plus j&#39;ai d&#39;ingrédients</span>
+                <br></br>
+                <span>à l&#39;intérieur.</span>
+            </p>
+            <p begin="00:26:01.040" end="00:26:02.320">
+                <span>L&#39;air est gratuit,</span>
+            </p>
+            <p begin="00:26:02.400" end="00:26:04.280">
+                <span>les industriels l&#39;ont bien compris.</span>
+            </p>
+            <p begin="00:26:04.360" end="00:26:07.160">
+                <span>Quand je mets 50 % d&#39;air</span>
+                <br></br>
+                <span>dans un litre de glace,</span>
+            </p>
+            <p begin="00:26:07.240" end="00:26:09.240">
+                <span>mon prix de revient est différent.</span>
+            </p>
+            <p begin="00:26:09.440" end="00:26:13.480">
+                <span>-Illustration sur la balance</span>
+                <br></br>
+                <span>avec un litre de glace artisanale.</span>
+            </p>
+            <p begin="00:26:13.760" end="00:26:16.440">
+                <span>-Celui-ci pèse 712 g.</span>
+            </p>
+            <p begin="00:26:16.840" end="00:26:20.760">
+                <span>-Et un litre de glace industrielle,</span>
+                <br></br>
+                <span>500 g.</span>
+            </p>
+            <p begin="00:26:25.600" end="00:26:28.560">
+                <span>Nous décidons d&#39;attendre</span>
+                <br></br>
+                <span>qu&#39;elles fondent.</span>
+            </p>
+            <p begin="00:26:33.040" end="00:26:37.240">
+                <span>Après quelques heures, la glace</span>
+                <br></br>
+                <span>artisanale à gauche a bien fondu.</span>
+            </p>
+            <p begin="00:26:37.320" end="00:26:40.840">
+                <span>La crème qu&#39;elle contient</span>
+                <br></br>
+                <span>ne résiste pas à la chaleur.</span>
+            </p>
+            <p begin="00:26:40.920" end="00:26:43.800">
+                <span>Les glaces industrielles,</span>
+                <br></br>
+                <span>qui contiennent de l&#39;air,</span>
+            </p>
+            <p begin="00:26:43.880" end="00:26:47.680">
+                <span>de la farine et du concentré</span>
+                <br></br>
+                <span>de carottes se tiennent mieux.</span>
+            </p>
+            <p begin="00:26:47.760" end="00:26:50.160">
+                <span>Reste la question</span>
+                <br></br>
+                <span>des poudres à glaces</span>
+            </p>
+            <p begin="00:26:50.240" end="00:26:52.600">
+                <span>contenant épaississants,</span>
+                <br></br>
+                <span>arômes et colorants.</span>
+            </p>
+            <p begin="00:26:52.680" end="00:26:55.560">
+                <span>Elles sont de plus en plus utilisées</span>
+                <br></br>
+                <span>par les glaciers</span>
+            </p>
+            <p begin="00:26:55.640" end="00:26:58.520">
+                <span>qui se revendiquent artisans,</span>
+                <br></br>
+                <span>en toute légalité.</span>
+            </p>
+            <p begin="00:26:58.880" end="00:27:00.360">
+                <span>-On peut accepter</span>
+            </p>
+            <p begin="00:27:00.440" end="00:27:01.840">
+                <span>le terme &#34;artisanal&#34;</span>
+            </p>
+            <p begin="00:27:01.920" end="00:27:09.160">
+                <span>pour des denrées produites</span>
+                <br></br>
+                <span>en petite quantité ou à la main.</span>
+            </p>
+            <p begin="00:27:09.520" end="00:27:12.160">
+                <span>-Pour manger</span>
+                <br></br>
+                <span>une vraie glace artisanale,</span>
+            </p>
+            <p begin="00:27:12.240" end="00:27:16.360">
+                <span>méfiez-vous des parfums artificiels</span>
+                <br></br>
+                <span>et des couleurs trop vives.</span>
+            </p>
+            <p begin="00:27:19.000" end="00:27:21.960">
+                <span>-Et on se quitte en musique.</span>
+            </p>
+            <p begin="00:27:22.000" end="00:27:27.520">
+                <span>A Martigny, le folklore international</span>
+            </p>
+            <p begin="00:27:27.640" end="00:27:32.120">
+                <span>est à l&#39;honneur du festival FIFO</span>
+                <br></br>
+                <span>jusque samedi.</span>
+            </p>
+            <p begin="00:27:34.320" end="00:27:37.880">
+                <span>-Musiques, danses, transmises</span>
+                <br></br>
+                <span>de génération en génération,</span>
+            </p>
+            <p begin="00:27:37.960" end="00:27:44.960">
+                <span>pour conserver</span>
+                <br></br>
+                <span>une identité culturelle.</span>
+            </p>
+            <p begin="00:27:45.720" end="00:27:53.760">
+                <span>-La Bulgarie est connue</span>
+                <br></br>
+                <span>pour ses rythmes particuliers,</span>
+            </p>
+            <p begin="00:27:53.840" end="00:27:57.520">
+                <span>ils sont différents</span>
+                <br></br>
+                <span>dans chaque région du pays.</span>
+            </p>
+            <p begin="00:27:57.720" end="00:28:01.360">
+                <span>-C’est faire découvrir</span>
+                <br></br>
+                <span>la culture colombienne,</span>
+            </p>
+            <p begin="00:28:01.440" end="00:28:07.160">
+                <span>vous pouvez voir toute notre culture,</span>
+                <br></br>
+                <span>ici pour vous.</span>
+            </p>
+            <p begin="00:28:07.440" end="00:28:14.320">
+                <span>-250 artistes</span>
+                <br></br>
+                <span>pour voyager à travers 5 continents,</span>
+            </p>
+            <p begin="00:28:14.400" end="00:28:18.800">
+                <span>dans les animations en ville.</span>
+            </p>
+            <p begin="00:28:19.040" end="00:28:21.400">
+                <span>-On veut montrer que les traditions,</span>
+            </p>
+            <p begin="00:28:21.480" end="00:28:23.680">
+                <span>la culture, l’exotisme, les couleurs</span>
+            </p>
+            <p begin="00:28:23.720" end="00:28:28.200">
+                <span>sont toujours vivantes à Martigny.</span>
+            </p>
+            <p begin="00:28:28.400" end="00:28:30.880">
+                <span>-Et pour attirer</span>
+                <br></br>
+                <span>les jeunes générations,</span>
+            </p>
+            <p begin="00:28:30.960" end="00:28:32.960">
+                <span>les danses s’adaptent.</span>
+            </p>
+            <p begin="00:28:33.200" end="00:28:41.640">
+                <span>-On s’inspire des nouvelles danses,</span>
+                <br></br>
+                <span>le hip-hop ou le street dance.</span>
+            </p>
+            <p begin="00:28:41.880" end="00:28:51.000">
+                <span>-C’est une danse traditionnelle,</span>
+                <br></br>
+                <span>le clugging,</span>
+            </p>
+            <p begin="00:28:51.080" end="00:28:56.960">
+                <span>où l’on tape avec les pieds,</span>
+                <br></br>
+                <span>qui est très répandue en Utah.</span>
+            </p>
+            <p begin="00:28:58.240" end="00:29:01.680">
+                <span>Musique rythmée</span>
+            </p>
+            <p begin="00:29:01.760" end="00:29:04.040">
+                <span>...</span>
+            </p>
+            <p begin="00:29:04.120" end="00:29:07.120">
+                <span>-Le folklore mondial et régional,</span>
+                <br></br>
+                <span>à découvrir dans les rues</span>
+            </p>
+            <p begin="00:29:07.200" end="00:29:12.160">
+                <span>et à l’amphithéâtre de Martigny</span>
+                <br></br>
+                <span>jusqu’à samedi.</span>
+            </p>
+            <p begin="00:29:13.240" end="00:29:16.480">
+                <span>-L&#39;information est tombée</span>
+                <br></br>
+                <span>pendant le journal.</span>
+            </p>
+            <p begin="00:29:16.560" end="00:29:20.800">
+                <span>L&#39;ex-conseiller national,</span>
+                <br></br>
+                <span>Yannick Buttet, a démissionné</span>
+            </p>
+            <p begin="00:29:20.880" end="00:29:27.640">
+                <span>de son poste de président</span>
+                <br></br>
+                <span>de la Chambre valaisanne de tourisme.</span>
+            </p>
+            <p begin="00:29:28.680" end="00:29:29.960">
+                <span>C&#39;est la fin de ce journal.</span>
+            </p>
+            <p begin="00:29:30.040" end="00:29:33.960">
+                <span>Tout de suite la météo,</span>
+                <br></br>
+                <span>suivie d&#39;&#34;A bon entendeur&#34;.</span>
+            </p>
+            <p begin="00:29:34.040" end="00:29:37.760">
+                <span>Demain,</span>
+                <br></br>
+                <span>Margot Delévaux pour le &#34;12h45&#34;.</span>
+            </p>
+            <p begin="00:29:37.840" end="00:29:39.760">
+                <span>Très bonne soirée et à demain !</span>
+            </p>
+            <p begin="00:29:39.840" end="00:29:43.120">
+                <span>Sous-titrage SWISS TXT</span>
+                <br></br>
+                <span>J.Brandt, C.Sanguinetti,</span>
+                <br></br>
+                <span>L.Raniolo, B.Triboulet</span>
+                <br></br>
+                <span></span>
+            </p>
+        </div>
+    </body>
+</tt>
