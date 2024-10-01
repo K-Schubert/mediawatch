@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # db service
+  db:
+    build:
+      context: src/db
+      dockerfile: Dockerfile
+    image: mediawatch-postgresql-db
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+    volumes:
+      - ./src/db/data:/var/lib/postgresql/data
+    networks:
+      - mediawatch-network
+    restart: "no"
+
+networks:
+  mediawatch-network:
+    driver: bridge
