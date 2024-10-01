@@ -170,3 +170,4 @@ cython_debug/
 *.vtt
 *.ttml
 *.png
+src/db/data
