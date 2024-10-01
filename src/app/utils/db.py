@@ -85,11 +85,9 @@ class Article():
 class Database():
 
     def __init__(self):
-        pass
+       self.db = self.get_db()
 
-    @staticmethod
-    def get_db():
-
+    def get_db(self):
         db = psycopg2.connect(
             dbname=POSTGRES_DB,
             user=POSTGRES_USER,
@@ -100,7 +98,25 @@ class Database():
 
         return db
 
-    def table_to_csv(self):
-        with open('articles.csv', 'w', newline='') as file:
-            cursor = db.cursor()
-            cursor.copy_expert("COPY articles TO STDOUT WITH CSV HEADER", file)
+    def clear_table(self, table_name):
+        cursor = self.db.cursor()
+        try:
+            cursor.execute(f"DELETE FROM {table_name}")
+            self.db.commit()
+        except Exception as e:
+            self.db.rollback()
+            raise e
+        finally:
+            cursor.close()
+
+    def table_to_csv(self, table_name, save_path):
+        with open(os.path.join(save_path, f'{table_name}.csv'), 'w', newline='', encoding='utf-8') as file:
+            cursor = self.db.cursor()
+            try:
+                cursor.copy_expert(f"COPY {table_name} TO STDOUT WITH CSV HEADER", file)
+            finally:
+                cursor.close()  # Close the cursor
+
+    def close(self):
+        if self.db:
+            self.db.close()
