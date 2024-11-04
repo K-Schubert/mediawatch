@@ -171,3 +171,8 @@ cython_debug/
 *.ttml
 *.png
 src/db/data
+/data
+/examples
+
+src/frontend/node_modules
+src/frontend/yarn.lock

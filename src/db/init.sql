@@ -9,6 +9,8 @@ CREATE TABLE articles (
     html TEXT,
     text TEXT,
     published_date TIMESTAMP,
+    modified_date TIMESTAMP,
+    membership TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     language VARCHAR(2) DEFAULT 'fr'
