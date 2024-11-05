@@ -3,10 +3,53 @@ import axios from 'axios';
 import Editor from './components/Editor';
 import SearchBar from './components/SearchBar';
 
-function AnnotationItem({ annotation, onDelete }) {
+function AnnotationItem({ annotation, onDelete, onUpdate }) {
   const [comments, setComments] = useState(annotation.comments || []);
   const [commentInputOpen, setCommentInputOpen] = useState(false);
   const [commentText, setCommentText] = useState('');
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editValues, setEditValues] = useState({
+    category: annotation.category,
+    subcategory: annotation.subcategory,
+    highlighted_text: annotation.highlighted_text,
+  });
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleInputChange = (field, value) => {
+    setEditValues((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSave = () => {
+    const updatedData = {
+      category: editValues.category,
+      subcategory: editValues.subcategory,
+      highlighted_text: editValues.highlighted_text,
+      timestamp: new Date().toISOString(),
+    };
+
+    axios.put(`http://localhost:8000/annotations/${annotation.id}`, updatedData)
+      .then(response => {
+        // Update the annotation in the parent component
+        onUpdate(response.data);
+        setIsEditing(false);
+      })
+      .catch(error => {
+        console.error('Error updating annotation:', error);
+      });
+  };
+
+  const handleCancel = () => {
+    setEditValues({
+      category: annotation.category,
+      subcategory: annotation.subcategory,
+      highlighted_text: annotation.highlighted_text,
+    });
+    setIsEditing(false);
+  };
 
   const handleAddCommentClick = () => {
     setCommentInputOpen(true);
@@ -63,10 +106,45 @@ function AnnotationItem({ annotation, onDelete }) {
 
       <p><strong>Timestamp:</strong> {new Date(annotation.timestamp).toLocaleString()}</p>
       <p><strong>User:</strong> {annotation.user}</p>
-      <p><strong>Category:</strong> {annotation.category}</p>
-      <p><strong>Subcategory:</strong> {annotation.subcategory}</p>
-      <p><strong>Highlighted Text:</strong></p>
-      <p style={{ backgroundColor: '#f9f9f9', padding: '5px' }}>{annotation.highlighted_text}</p>
+
+      {isEditing ? (
+        <>
+          <div>
+            <label>Category:</label>
+            <input
+              type="text"
+              value={editValues.category}
+              onChange={(e) => handleInputChange('category', e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Subcategory:</label>
+            <input
+              type="text"
+              value={editValues.subcategory}
+              onChange={(e) => handleInputChange('subcategory', e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Highlighted Text:</label>
+            <textarea
+              value={editValues.highlighted_text}
+              onChange={(e) => handleInputChange('highlighted_text', e.target.value)}
+              style={{ width: '100%', padding: '5px' }}
+            />
+          </div>
+          <button onClick={handleSave} style={{ marginRight: '10px' }}>Save</button>
+          <button onClick={handleCancel}>Cancel</button>
+        </>
+      ) : (
+        <>
+          <p><strong>Category:</strong> {annotation.category}</p>
+          <p><strong>Subcategory:</strong> {annotation.subcategory}</p>
+          <p><strong>Highlighted Text:</strong></p>
+          <p style={{ backgroundColor: '#f9f9f9', padding: '5px' }}>{annotation.highlighted_text}</p>
+          <button onClick={handleEditClick} style={{ marginTop: '10px' }}>Edit</button>
+        </>
+      )}
 
       <div style={{ marginTop: '10px' }}>
         <strong>Comments:</strong>
@@ -222,6 +300,14 @@ function App() {
 
   const handleAnnotationDelete = (deletedAnnotationId) => {
     setAnnotations(annotations.filter(a => a.id !== deletedAnnotationId));
+  };
+
+  const handleAnnotationUpdate = (updatedAnnotation) => {
+    setAnnotations((prevAnnotations) =>
+      prevAnnotations.map((annotation) =>
+        annotation.id === updatedAnnotation.id ? updatedAnnotation : annotation
+      )
+    );
   };
 
   const exportCurrentDocumentAnnotations = () => {
@@ -495,6 +581,7 @@ function App() {
                     key={annotation.id}
                     annotation={annotation}
                     onDelete={handleAnnotationDelete}
+                    onUpdate={handleAnnotationUpdate}
                   />
                 ))}
               </div>
