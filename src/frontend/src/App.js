@@ -232,9 +232,28 @@ function App() {
     setClearSearchTrigger(true);
     setTimeout(() => setClearSearchTrigger(false), 0);
 
+    // Clear editor content and highlights
+    if (editorRef.current && editorRef.current.setContent) {
+      editorRef.current.setContent(article.text);
+    }
+
+    // Fetch annotations for the selected article
     axios.get(`http://localhost:8000/annotations/article/${article.id}`)
       .then(response => {
         setAnnotations(response.data);
+
+        // Highlight annotations in the editor
+        if (editorRef.current && editorRef.current.addHighlight) {
+          response.data.forEach(annotation => {
+            const { highlighted_text, category, id } = annotation;
+            const positions = findAllOccurrences(article.text, highlighted_text);
+            const color = getColorForCategory(category);
+
+            positions.forEach(({ from, to }) => {
+              editorRef.current.addHighlight(from, to, color, id);
+            });
+          });
+        }
       })
       .catch(error => {
         console.error('Error fetching annotations:', error);
@@ -300,6 +319,11 @@ function App() {
 
   const handleAnnotationDelete = (deletedAnnotationId) => {
     setAnnotations(annotations.filter(a => a.id !== deletedAnnotationId));
+
+    // Remove the highlight from the editor
+    if (editorRef.current && editorRef.current.removeHighlight) {
+      editorRef.current.removeHighlight(deletedAnnotationId);
+    }
   };
 
   const handleAnnotationUpdate = (updatedAnnotation) => {
@@ -429,6 +453,24 @@ function App() {
         <hr />
       </>
     );
+  };
+
+  // Helper function to find all occurrences of highlighted_text in article.text
+  const findAllOccurrences = (content, searchText) => {
+    const positions = [];
+    let startIndex = 0;
+
+    while (startIndex < content.length) {
+      const index = content.indexOf(searchText, startIndex);
+      if (index === -1) break;
+
+      const from = index;
+      const to = from + searchText.length;
+      positions.push({ from, to });
+      startIndex = index + searchText.length;
+    }
+
+    return positions;
   };
 
   return (

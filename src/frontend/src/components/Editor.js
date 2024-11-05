@@ -6,6 +6,9 @@ import { Decoration, DecorationSet } from 'prosemirror-view';
 import { Plugin, PluginKey } from 'prosemirror-state';
 import 'prosemirror-view/style/prosemirror.css'; // Basic editor styling
 
+// Initialize pluginKey at module level
+const pluginKey = new PluginKey('decorations');
+
 const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => {
   const editorContainerRef = useRef(null);
   const viewRef = useRef(null);
@@ -46,6 +49,15 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
   }));
 
   useEffect(() => {
+    // Cleanup the old editor instance if it exists
+    if (viewRef.current) {
+      viewRef.current.destroy();
+      viewRef.current = null;
+    }
+
+    // Reset decorations
+    decorationsRef.current = DecorationSet.empty;
+
     if (!editorContainerRef.current) return;
 
     // Create a document node from the initial content
@@ -66,6 +78,7 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
       },
     });
 
+    // Return cleanup function
     return () => {
       if (viewRef.current) {
         viewRef.current.destroy();
@@ -76,7 +89,7 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
 
   const createDecorationPlugin = () => {
     return new Plugin({
-      key: new PluginKey('decorations'),
+      key: pluginKey,
       state: {
         init: () => decorationsRef.current || DecorationSet.empty,
         apply: (tr, set) => {
@@ -111,8 +124,7 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
     }, { annotationId });
 
     decorationsRef.current = decorationsRef.current.add(state.doc, [decoration]);
-    const tr = state.tr.setMeta(new PluginKey('decorations'), null);
-    dispatch(tr);
+    dispatch(state.tr.setMeta(pluginKey, {})); // Trigger plugin to reapply decorations
   };
 
   const removeHighlight = (annotationId) => {
@@ -121,25 +133,28 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
 
     const newDecorations = decorationsRef.current.find().filter(deco => deco.spec.annotationId !== annotationId);
     decorationsRef.current = DecorationSet.create(state.doc, newDecorations);
-    const tr = state.tr.setMeta(new PluginKey('decorations'), null);
-    dispatch(tr);
+    dispatch(state.tr.setMeta(pluginKey, {})); // Trigger plugin to reapply decorations
   };
 
   const setContent = (newContent) => {
     if (!viewRef.current) return;
-    const { state, dispatch } = viewRef.current;
 
     // Parse the new content
     const contentElement = document.createElement('div');
     contentElement.textContent = newContent;
     const doc = ProseMirrorDOMParser.fromSchema(schema).parse(contentElement);
 
-    // Create a transaction to replace the document
-    const tr = state.tr.replaceWith(0, state.doc.content.size, doc.content);
-    dispatch(tr);
-
-    // Clear any existing decorations (highlights)
+    // Reset decorations
     decorationsRef.current = DecorationSet.empty;
+
+    // Create a new EditorState
+    const newState = EditorState.create({
+      doc,
+      plugins: viewRef.current.state.plugins, // Keep the same plugins
+    });
+
+    // Update the editor's state
+    viewRef.current.updateState(newState);
   };
 
   return (
