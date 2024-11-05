@@ -25,14 +25,5 @@ app.add_middleware(
 app.include_router(articles.router)
 app.include_router(options.router)
 app.include_router(annotations.router)
+app.include_router(analyze.router)
 
-# TO DO: create routers/analyze.py
-from pydantic import BaseModel
-
-class AnalyzeRequest(BaseModel):
-    text: str
-
-@app.post("/analyze")
-def analyze_text(request: AnalyzeRequest):
-    analyzed_text = request.text + " TEST"
-    return {"analyzed_text": analyzed_text}

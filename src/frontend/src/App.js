@@ -261,14 +261,33 @@ function App() {
   };
 
   const handleAnalyze = () => {
-    if (selectedArticle && selectedArticle.text) {
-      axios.post('http://localhost:8000/analyze', { text: selectedArticle.text })
+    if (selectedArticle && selectedArticle.id) {
+      axios.post(`http://localhost:8000/analyze?article_id=${selectedArticle.id}`)
         .then(response => {
           console.log('Analysis result:', response.data);
+          const newAnnotations = response.data;
+
+          // Update annotations state
+          setAnnotations(prevAnnotations => [...prevAnnotations, ...newAnnotations]);
+
+          // Highlight annotations in the editor
+          if (editorRef.current && editorRef.current.addHighlight) {
+            newAnnotations.forEach(annotation => {
+              const { highlighted_text, category, id } = annotation;
+              const positions = findAllOccurrences(selectedArticle.text, highlighted_text);
+              const color = getColorForCategory(category);
+
+              positions.forEach(({ from, to }) => {
+                editorRef.current.addHighlight(from, to, color, id);
+              });
+            });
+          }
         })
         .catch(error => {
           console.error('Error analyzing text:', error);
         });
+    } else {
+      alert('No article selected for analysis.');
     }
   };
 
@@ -457,7 +476,7 @@ function App() {
       'C': '#87CEFA', // LightSkyBlue
       'D': '#FFB6C1', // LightPink
     };
-    return categoryColors[categoryId] || '#FFFF00'; // Default to yellow
+    return categoryColors[categoryId.trim()] || '#FFFF00'; // Default to yellow
   };
 
   const formatMetadata = (article) => {
@@ -479,16 +498,18 @@ function App() {
   // Helper function to find all occurrences of highlighted_text in article.text
   const findAllOccurrences = (content, searchText) => {
     const positions = [];
+    const normalizedContent = content.toLowerCase();
+    const normalizedSearchText = searchText.toLowerCase().trim();
     let startIndex = 0;
 
-    while (startIndex < content.length) {
-      const index = content.indexOf(searchText, startIndex);
+    while (startIndex < normalizedContent.length) {
+      const index = normalizedContent.indexOf(normalizedSearchText, startIndex);
       if (index === -1) break;
 
       const from = index;
-      const to = from + searchText.length;
+      const to = from + normalizedSearchText.length;
       positions.push({ from, to });
-      startIndex = index + searchText.length;
+      startIndex = index + normalizedSearchText.length;
     }
 
     return positions;

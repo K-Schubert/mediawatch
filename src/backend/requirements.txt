@@ -3,4 +3,4 @@ uvicorn==0.29.0
 python-dotenv==1.0.1
 SQLAlchemy
 psycopg2-binary
-openai==1.33.0
+openai==1.54.0
