@@ -56,4 +56,3 @@ def get_annotations_by_article(article_id: int, db: Session = Depends(get_db)):
         models.Annotation.article_id == article_id
     ).order_by(models.Annotation.timestamp.asc()).all()
     return annotations
-
