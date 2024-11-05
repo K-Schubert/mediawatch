@@ -4,3 +4,4 @@ python-dotenv==1.0.1
 SQLAlchemy
 psycopg2-binary
 openai==1.54.0
+pandas==2.2.3
