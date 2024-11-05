@@ -485,6 +485,7 @@ function App() {
         <p><strong>Title:</strong> {article.title || 'N/A'}</p>
         <p><strong>Author:</strong> {article.author || 'N/A'}</p>
         <p><strong>Source:</strong> {article.source || 'N/A'}</p>
+        <p><strong>Link:</strong> <a href={article.link} target="_blank" rel="noopener noreferrer">{article.link || 'N/A'}</a></p>
         <p><strong>Topic:</strong> {article.topic || 'N/A'}</p>
         <p><strong>Published Date:</strong> {article.published_date ? new Date(article.published_date).toLocaleDateString() : 'N/A'}</p>
         <p><strong>Modified Date:</strong> {article.modified_date ? new Date(article.modified_date).toLocaleDateString() : 'N/A'}</p>
@@ -520,6 +521,7 @@ function App() {
       <SearchBar
         onArticlesFetched={handleArticlesFetched}
         onClearSearchTrigger={clearSearchTrigger}
+        onArticleSelect={handleArticleSelect}  // Pass the function here
       />
       {articles.length > 0 && (
         <div style={{
@@ -537,7 +539,11 @@ function App() {
               onClick={() => handleArticleSelect(article)}
               style={{ padding: '10px', cursor: 'pointer', borderBottom: '1px solid #eee' }}
             >
-              {article.title || 'Untitled Article'}
+              <h3>{article.title || 'Untitled Article'}</h3>
+              <p>
+                <span><strong>Author:</strong> {article.author || 'Unknown'}</span>
+                <span style={{ marginLeft: '20px' }}><strong>Publication Date:</strong> {new Date(article.published_date).toLocaleDateString()}</span>
+              </p>
             </div>
           ))}
         </div>
