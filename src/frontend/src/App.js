@@ -93,7 +93,7 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
         style={{
           position: 'absolute',
           top: '0',
-          right: '0',
+          right: '10px', // Adjusted position to move it inward
           background: 'transparent',
           border: 'none',
           fontSize: '16px',
@@ -278,11 +278,6 @@ function App() {
 
   const handleSaveAnnotation = () => {
     if (highlightData && selectedCategory && selectedOption) {
-      const color = getColorForCategory(selectedCategory);
-
-      if (editorRef.current && editorRef.current.addHighlight) {
-        editorRef.current.addHighlight(highlightData.from, highlightData.to, color);
-      }
 
       const annotation = {
         article_id: selectedArticle.id,
@@ -297,21 +292,32 @@ function App() {
       axios.post('http://localhost:8000/annotations', annotation)
         .then(response => {
           console.log('Annotation saved:', response.data);
-          axios.get(`http://localhost:8000/annotations/article/${selectedArticle.id}`)
-            .then(res => {
-              setAnnotations(res.data);
-            })
-            .catch(err => {
-              console.error('Error fetching annotations:', err);
+
+          const newAnnotation = response.data;
+
+          // Add the highlight with the annotation id
+          if (editorRef.current && editorRef.current.addHighlight) {
+            const { highlighted_text, category, id } = newAnnotation;
+            const positions = findAllOccurrences(selectedArticle.text, highlighted_text);
+            const color = getColorForCategory(category);
+
+            positions.forEach(({ from, to }) => {
+              editorRef.current.addHighlight(from, to, color, id);
             });
+          }
+
+          // Update annotations state
+          setAnnotations(prevAnnotations => [...prevAnnotations, newAnnotation]);
+
+          // Clear selections
+          setHighlightData(null);
+          setSelectedCategory('');
+          setSelectedOption('');
         })
         .catch(error => {
           console.error('Error saving annotation:', error);
         });
 
-      setHighlightData(null);
-      setSelectedCategory('');
-      setSelectedOption('');
     } else {
       alert('Please select text and choose a category and subcategory before saving.');
     }
@@ -332,6 +338,21 @@ function App() {
         annotation.id === updatedAnnotation.id ? updatedAnnotation : annotation
       )
     );
+
+    // Update the highlight in the editor
+    if (editorRef.current) {
+      // Remove the old highlight
+      editorRef.current.removeHighlight(updatedAnnotation.id);
+
+      // Add the new highlight
+      const { highlighted_text, category, id } = updatedAnnotation;
+      const positions = findAllOccurrences(selectedArticle.text, highlighted_text);
+      const color = getColorForCategory(category);
+
+      positions.forEach(({ from, to }) => {
+        editorRef.current.addHighlight(from, to, color, id);
+      });
+    }
   };
 
   const exportCurrentDocumentAnnotations = () => {
