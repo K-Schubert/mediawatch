@@ -47,7 +47,7 @@ class AnnotationBase(BaseModel):
     highlighted_text: str
     category: str
     subcategory: str
-    article_metadata: dict
+    article_metadata: Optional[dict] = None
     user: str
 
 class AnnotationCreate(AnnotationBase):
