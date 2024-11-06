@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from . import models
 from .database import engine
-from .routers import articles, options, annotations, analyze
+from .routers import articles, options, annotations, analyze, auth
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -26,4 +26,4 @@ app.include_router(articles.router)
 app.include_router(options.router)
 app.include_router(annotations.router)
 app.include_router(analyze.router)
-
+app.include_router(auth.router)

@@ -3,6 +3,11 @@ import axios from 'axios';
 import Editor from './components/Editor';
 import SearchBar from './components/SearchBar';
 
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import { setupAxiosInterceptors } from './utils/auth';
+
 function AnnotationItem({ annotation, onDelete, onUpdate }) {
   const [comments, setComments] = useState(annotation.comments || []);
   const [commentInputOpen, setCommentInputOpen] = useState(false);
@@ -182,7 +187,7 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
   );
 }
 
-function App() {
+function MainApp() {
   const [articles, setArticles] = useState([]);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [clearSearchTrigger, setClearSearchTrigger] = useState(false);
@@ -682,6 +687,50 @@ function App() {
         </div>
       )}
     </div>
+  );
+}
+
+function App() {
+  useEffect(() => {
+    setupAxiosInterceptors();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:8000/login/logout');
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '/login';
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <div>
+                <nav className="bg-gray-800 p-4">
+                  <button
+                    onClick={handleLogout}
+                    className="float-right text-white bg-red-600 px-4 py-2 rounded"
+                  >
+                    Logout
+                  </button>
+                </nav>
+                <MainApp />
+              </div>
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
 

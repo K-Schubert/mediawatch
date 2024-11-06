@@ -29,7 +29,7 @@ class Article(ArticleBase):
 
 class CommentBase(BaseModel):
     annotation_id: int
-    user: str
+    user_id: int  # Add this line
     comment_text: str
 
 class CommentCreate(CommentBase):
@@ -44,11 +44,11 @@ class Comment(CommentBase):
 
 class AnnotationBase(BaseModel):
     article_id: int
+    user_id: int  # Add this line
     highlighted_text: str
     category: str
     subcategory: str
     article_metadata: Optional[dict] = None
-    user: str
 
 class AnnotationCreate(AnnotationBase):
     pass
@@ -70,3 +70,28 @@ class AnnotationUpdate(BaseModel):
 
     class Config:
         orm_mode = True
+
+class UserCreate(BaseModel):
+    username: str
+    email: str
+    password: str
+
+class requestdetails(BaseModel):
+    email:str
+    password:str
+
+class TokenSchema(BaseModel):
+    access_token: str
+    refresh_token: str
+
+class changepassword(BaseModel):
+    email:str
+    old_password:str
+    new_password:str
+
+class TokenCreate(BaseModel):
+    user_id:str
+    access_token:str
+    refresh_token:str
+    status:bool
+    created_date:datetime
