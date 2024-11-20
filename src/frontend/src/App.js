@@ -3,6 +3,36 @@ import axios from 'axios';
 import Editor from './components/Editor';
 import SearchBar from './components/SearchBar';
 import LoginForm from './components/LoginForm';
+import { ThemeProvider } from 'styled-components';
+import { customTheme } from './styles/theme';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  padding: ${props => props.small ? '6px 12px' : '8px 16px'};
+  background-color: ${props => props.variant === 'danger'
+    ? '#ff4444'
+    : props.variant === 'secondary'
+    ? props.theme.colors.surface
+    : props.theme.colors.primary};
+  color: ${props => props.variant === 'secondary'
+    ? props.theme.colors.text.primary
+    : props.theme.colors.surface};
+  border: ${props => props.variant === 'secondary'
+    ? `1px solid ${props.theme.colors.border}`
+    : 'none'};
+  border-radius: ${props => props.theme.borderRadius.sm};
+  cursor: pointer;
+  font-size: ${props => props.small ? '14px' : '16px'};
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: ${props => props.variant === 'danger'
+      ? '#ff0000'
+      : props.variant === 'secondary'
+      ? props.theme.colors.hover.surface
+      : props.theme.colors.hover.primary};
+  }
+`;
 
 function AnnotationItem({ annotation, onDelete, onUpdate }) {
   const [comments, setComments] = useState(annotation.comments || []);
@@ -91,21 +121,19 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
 
   return (
     <div style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px', position: 'relative' }}>
-      <button
+      <StyledButton
         onClick={handleDelete}
+        variant="danger"
+        small
         style={{
           position: 'absolute',
           top: '0',
-          right: '10px', // Adjusted position to move it inward
-          background: 'transparent',
-          border: 'none',
-          fontSize: '16px',
-          cursor: 'pointer',
+          right: '10px',
         }}
         title="Delete Annotation"
       >
-        &#10005; {/* Unicode character for 'X' */}
-      </button>
+        &#10005;
+      </StyledButton>
 
       <p><strong>Timestamp:</strong> {new Date(annotation.timestamp).toLocaleString()}</p>
       <p><strong>User:</strong> {annotation.user}</p>
@@ -136,8 +164,10 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
               style={{ width: '100%', padding: '5px' }}
             />
           </div>
-          <button onClick={handleSave} style={{ marginRight: '10px' }}>Save</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <div style={{ marginTop: '10px' }}>
+            <StyledButton onClick={handleSave} style={{ marginRight: '10px' }}>Save</StyledButton>
+            <StyledButton variant="secondary" onClick={handleCancel}>Cancel</StyledButton>
+          </div>
         </>
       ) : (
         <>
@@ -145,7 +175,7 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
           <p><strong>Subcategory:</strong> {annotation.subcategory}</p>
           <p><strong>Highlighted Text:</strong></p>
           <p style={{ backgroundColor: '#f9f9f9', padding: '5px' }}>{annotation.highlighted_text}</p>
-          <button onClick={handleEditClick} style={{ marginTop: '10px' }}>Edit</button>
+          <StyledButton variant="secondary" onClick={handleEditClick} style={{ marginTop: '10px' }}>Edit</StyledButton>
         </>
       )}
 
@@ -170,7 +200,7 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
               rows={2}
               style={{ width: '100%', padding: '5px' }}
             />
-            <button onClick={handleCommentSubmit} style={{ marginTop: '5px' }}>Submit Comment</button>
+            <StyledButton onClick={handleCommentSubmit} style={{ marginTop: '5px' }}>Submit Comment</StyledButton>
           </div>
         ) : (
           <p
@@ -553,197 +583,191 @@ function App() {
 
   if (!token) {
     return (
-      <LoginForm onLogin={handleLogin} />
+      <ThemeProvider theme={customTheme}>
+        <LoginForm onLogin={handleLogin} />
+      </ThemeProvider>
     );
   }
 
   return (
-    <div style={{ position: 'relative', padding: '20px' }}>
-      {/* Add Logout Button */}
-      <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
-        <button onClick={handleLogout} style={{ padding: '10px', cursor: 'pointer' }}>
-          Logout
-        </button>
-      </div>
-      <SearchBar
-        onArticlesFetched={handleArticlesFetched}
-        onClearSearchTrigger={clearSearchTrigger}
-        onArticleSelect={handleArticleSelect}  // Pass the function here
-      />
-      {articles.length > 0 && (
+    <ThemeProvider theme={customTheme}>
+      <div style={{ padding: `${customTheme.spacing.xl} ${customTheme.spacing.md} ${customTheme.spacing.md}` }}>
+        {/* Logout Button */}
         <div style={{
           position: 'absolute',
-          backgroundColor: 'white',
-          border: '1px solid #ccc',
-          width: '100%',
-          maxHeight: '200px',
-          overflowY: 'auto',
-          zIndex: 1
+          top: customTheme.spacing.sm,
+          right: customTheme.spacing.md,
+          marginBottom: customTheme.spacing.md
         }}>
-          {articles.map(article => (
-            <div
-              key={article.id}
-              onClick={() => handleArticleSelect(article)}
-              style={{ padding: '10px', cursor: 'pointer', borderBottom: '1px solid #eee' }}
-            >
-              <h3>{article.title || 'Untitled Article'}</h3>
-              <p>
-                <span><strong>Author:</strong> {article.author || 'Unknown'}</span>
-                <span style={{ marginLeft: '20px' }}><strong>Publication Date:</strong> {new Date(article.published_date).toLocaleDateString()}</span>
-              </p>
-            </div>
-          ))}
+          <StyledButton onClick={handleLogout}>Logout</StyledButton>
         </div>
-      )}
-      {selectedArticle && (
-        <div style={{ marginTop: '20px', display: 'flex' }}>
-          {/* Left Side: Article Details and Editor */}
-          <div style={{ flex: 3, marginRight: '20px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h2>Article Details</h2>
-              <button
-                onClick={handleAnalyze}
-                style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}
+        <SearchBar
+          onArticlesFetched={handleArticlesFetched}
+          onClearSearchTrigger={clearSearchTrigger}
+          onArticleSelect={handleArticleSelect}  // Pass the function here
+        />
+        {articles.length > 0 && (
+          <div style={{
+            position: 'absolute',
+            backgroundColor: customTheme.colors.surface,
+            border: `1px solid ${customTheme.colors.border}`,
+            width: '100%',
+            maxHeight: '200px',
+            overflowY: 'auto',
+            zIndex: 1,
+            boxShadow: customTheme.colors.shadow,
+            borderRadius: customTheme.borderRadius
+          }}>
+            {articles.map(article => (
+              <div
+                key={article.id}
+                onClick={() => handleArticleSelect(article)}
+                style={{
+                  padding: customTheme.spacing.sm,
+                  cursor: 'pointer',
+                  borderBottom: `1px solid ${customTheme.colors.border}`
+                }}
               >
-                Analyze
-              </button>
-            </div>
-            <div style={{ marginTop: '10px' }}>
-              {formatMetadata(selectedArticle)}
-              <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
-                <div>
-                  <label htmlFor="category-select"><strong>Select Category:</strong></label>
-                  <br />
-                  <select
-                    id="category-select"
-                    value={selectedCategory}
-                    onChange={(e) => {
-                      setSelectedCategory(e.target.value);
-                      setSelectedOption('');
-                    }}
-                    style={{ padding: '10px', fontSize: '16px' }}
-                  >
-                    <option value="">--Choose an option--</option>
-                    {categories.map((cat) => (
-                      <option key={cat.id} value={cat.id}>{cat.name}</option>
-                    ))}
-                  </select>
-                </div>
-                {selectedCategory && (
+                <h3 style={{ color: customTheme.colors.text.primary }}>{article.title || 'Untitled Article'}</h3>
+                <p style={{ color: customTheme.colors.text.secondary }}>
+                  <span><strong>Author:</strong> {article.author || 'Unknown'}</span>
+                  <span style={{ marginLeft: customTheme.spacing.md }}>
+                    <strong>Publication Date:</strong> {new Date(article.published_date).toLocaleDateString()}
+                  </span>
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+        {selectedArticle && (
+          <div style={{ marginTop: customTheme.spacing.md, display: 'flex' }}>
+            {/* Left Side: Article Details and Editor */}
+            <div style={{ flex: 3, marginRight: customTheme.spacing.md }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h2>Article Details</h2>
+                <StyledButton onClick={handleAnalyze}>Analyze</StyledButton>
+              </div>
+              <div style={{ marginTop: '10px' }}>
+                {formatMetadata(selectedArticle)}
+                <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
                   <div>
-                    <label htmlFor="option-select"><strong>Select Subcategory:</strong></label>
+                    <label htmlFor="category-select"><strong>Select Category:</strong></label>
                     <br />
                     <select
-                      id="option-select"
-                      value={selectedOption}
-                      onChange={(e) => setSelectedOption(e.target.value)}
+                      id="category-select"
+                      value={selectedCategory}
+                      onChange={(e) => {
+                        setSelectedCategory(e.target.value);
+                        setSelectedOption('');
+                      }}
                       style={{ padding: '10px', fontSize: '16px' }}
                     >
                       <option value="">--Choose an option--</option>
-                      {Object.entries(subcategories).map(([header, options]) => (
-                        <optgroup key={header} label={header}>
-                          {options.map((option) => (
-                            <option key={option} value={option}>{option}</option>
-                          ))}
-                        </optgroup>
+                      {categories.map((cat) => (
+                        <option key={cat.id} value={cat.id}>{cat.name}</option>
                       ))}
                     </select>
                   </div>
-                )}
-                <div style={{ alignSelf: 'flex-end' }}>
-                  <button
-                    onClick={handleSaveAnnotation}
-                    style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}
-                  >
-                    Save Annotation
-                  </button>
-                </div>
-              </div>
-              <Editor
-                initialContent={selectedArticle.text}
-                onTextSelect={handleTextSelect}
-                ref={editorRef}
-              />
-            </div>
-          </div>
-          {/* Right Side: Annotations Pane */}
-          <div style={{ flex: 1, borderLeft: '1px solid #ccc', paddingLeft: '20px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3>Annotation History</h3>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <button
-                  onClick={handleDeleteAllAnnotations}
-                  style={{
-                    padding: '5px 10px',
-                    cursor: 'pointer',
-                    backgroundColor: '#ff4444',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px'
-                  }}
-                >
-                  Delete All
-                </button>
-                {/* Existing Export CSV button */}
-                <div style={{ position: 'relative', display: 'inline-block' }}>
-                  <button
-                    style={{ padding: '5px 10px', cursor: 'pointer' }}
-                    onClick={() => setExportMenuOpen(!exportMenuOpen)}
-                  >
-                    Export CSV
-                  </button>
-                  {exportMenuOpen && (
-                    <div
-                      style={{
-                        position: 'absolute',
-                        right: 0,
-                        backgroundColor: 'white',
-                        border: '1px solid #ccc',
-                        boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-                        zIndex: 1,
-                      }}
-                    >
-                      <div
-                        style={{ padding: '8px 16px', cursor: 'pointer' }}
-                        onClick={() => {
-                          setExportMenuOpen(false);
-                          exportCurrentDocumentAnnotations();
-                        }}
+                  {selectedCategory && (
+                    <div>
+                      <label htmlFor="option-select"><strong>Select Subcategory:</strong></label>
+                      <br />
+                      <select
+                        id="option-select"
+                        value={selectedOption}
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                        style={{ padding: '10px', fontSize: '16px' }}
                       >
-                        Export Current Document Annotations
-                      </div>
-                      <div
-                        style={{ padding: '8px 16px', cursor: 'pointer' }}
-                        onClick={() => {
-                          setExportMenuOpen(false);
-                          exportAllUserAnnotations();
-                        }}
-                      >
-                        Export All My Annotations
-                      </div>
+                        <option value="">--Choose an option--</option>
+                        {Object.entries(subcategories).map(([header, options]) => (
+                          <optgroup key={header} label={header}>
+                            {options.map((option) => (
+                              <option key={option} value={option}>{option}</option>
+                            ))}
+                          </optgroup>
+                        ))}
+                      </select>
                     </div>
                   )}
+                  <div style={{ alignSelf: 'flex-end' }}>
+                    <StyledButton onClick={handleSaveAnnotation}>Save Annotation</StyledButton>
+                  </div>
                 </div>
+                <Editor
+                  initialContent={selectedArticle.text}
+                  onTextSelect={handleTextSelect}
+                  ref={editorRef}
+                />
               </div>
             </div>
-            {annotations.length > 0 ? (
-              <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
-                {annotations.map((annotation) => (
-                  <AnnotationItem
-                    key={annotation.id}
-                    annotation={annotation}
-                    onDelete={handleAnnotationDelete}
-                    onUpdate={handleAnnotationUpdate}
-                  />
-                ))}
+            {/* Right Side: Annotations Pane */}
+            <div style={{ flex: 1, borderLeft: `1px solid ${customTheme.colors.border}`, paddingLeft: customTheme.spacing.md }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h3>Annotation History</h3>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <StyledButton variant="danger" onClick={handleDeleteAllAnnotations}>
+                    Delete All
+                  </StyledButton>
+                  {/* Existing Export CSV button */}
+                  <div style={{ position: 'relative', display: 'inline-block' }}>
+                    <StyledButton variant="secondary" onClick={() => setExportMenuOpen(!exportMenuOpen)}>
+                      Export CSV
+                    </StyledButton>
+                    {exportMenuOpen && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          backgroundColor: 'white',
+                          border: '1px solid #ccc',
+                          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+                          zIndex: 1,
+                        }}
+                      >
+                        <StyledButton
+                          variant="secondary"
+                          onClick={() => {
+                            setExportMenuOpen(false);
+                            exportCurrentDocumentAnnotations();
+                          }}
+                          style={{ width: '100%', textAlign: 'left' }}
+                        >
+                          Export Current Document
+                        </StyledButton>
+                        <StyledButton
+                          variant="secondary"
+                          onClick={() => {
+                            setExportMenuOpen(false);
+                            exportAllUserAnnotations();
+                          }}
+                          style={{ width: '100%', textAlign: 'left' }}
+                        >
+                          Export All My Annotations
+                        </StyledButton>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
-            ) : (
-              <p>No annotations found for this article.</p>
-            )}
+              {annotations.length > 0 ? (
+                <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+                  {annotations.map((annotation) => (
+                    <AnnotationItem
+                      key={annotation.id}
+                      annotation={annotation}
+                      onDelete={handleAnnotationDelete}
+                      onUpdate={handleAnnotationUpdate}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <p>No annotations found for this article.</p>
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </ThemeProvider>
   );
 }
 

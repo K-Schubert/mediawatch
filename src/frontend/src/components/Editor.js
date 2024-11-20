@@ -5,6 +5,7 @@ import { EditorView } from 'prosemirror-view';
 import { Decoration, DecorationSet } from 'prosemirror-view';
 import { Plugin, PluginKey } from 'prosemirror-state';
 import 'prosemirror-view/style/prosemirror.css'; // Basic editor styling
+import { customTheme } from '../styles/theme';
 
 // Initialize pluginKey at module level
 const pluginKey = new PluginKey('decorations');
@@ -162,8 +163,11 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
       ref={editorContainerRef}
       onMouseUp={handleSelection}
       style={{
-        border: '1px solid #ccc',
-        padding: '10px',
+        padding: customTheme.spacing.xl,
+        backgroundColor: customTheme.colors.surface,
+        borderRadius: customTheme.borderRadius.lg,
+        boxShadow: `0 4px 6px ${customTheme.colors.shadow.light}, 0 10px 15px ${customTheme.colors.shadow.medium}`,
+        marginBottom: customTheme.spacing.xl,
         minHeight: '300px',
         maxHeight: '500px',
         overflowY: 'auto',
