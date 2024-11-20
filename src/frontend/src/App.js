@@ -119,6 +119,18 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
     }
   };
 
+  const handleCommentDelete = (commentId) => {
+    if (window.confirm("Are you sure you want to delete this comment?")) {
+      axios.delete(`http://localhost:8000/annotations/comments/${commentId}`)
+        .then(response => {
+          setComments(comments.filter(comment => comment.id !== commentId));
+        })
+        .catch(error => {
+          console.error('Error deleting comment:', error);
+        });
+    }
+  };
+
   return (
     <div style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px', position: 'relative' }}>
       <StyledButton
@@ -183,9 +195,30 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
         <strong>Comments:</strong>
         {comments.length > 0 ? (
           comments.map((comment, index) => (
-            <div key={index} style={{ marginTop: '5px' }}>
-              <p style={{ margin: '0' }}>
-                {comment.comment_text} ({comment.user}, {new Date(comment.timestamp).toLocaleString()})
+            <div key={index} style={{
+              marginTop: '5px',
+              position: 'relative',
+              backgroundColor: '#f9f9f9',
+              padding: '8px',
+              borderRadius: '4px'
+            }}>
+              <StyledButton
+                onClick={() => handleCommentDelete(comment.id)}
+                variant="danger"
+                small
+                style={{
+                  position: 'absolute',
+                  top: '4px',
+                  right: '4px',
+                  padding: '2px 6px',
+                  minWidth: 'auto'
+                }}
+                title="Delete Comment"
+              >
+                &#10005;
+              </StyledButton>
+              <p style={{ margin: '0', paddingRight: '24px' }}>
+                {comment.comment_text} ({comment.username}, {new Date(comment.timestamp).toLocaleString()})
               </p>
             </div>
           ))

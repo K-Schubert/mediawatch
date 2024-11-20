@@ -99,6 +99,20 @@ def create_comment(comment: schemas.CommentCreate, db: Session = Depends(get_db)
     db.refresh(db_comment)
     return db_comment
 
+@router.delete("/comments/{comment_id}", response_model=schemas.Comment)
+def delete_comment(comment_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    current_user = get_user_from_token(token, db)
+    comment = db.query(models.Comment).filter(models.Comment.id == comment_id).first()
+
+    if not comment:
+        raise HTTPException(status_code=404, detail="Comment not found")
+    if comment.user_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Not authorized to delete this comment")
+
+    db.delete(comment)
+    db.commit()
+    return comment
+
 @router.get("/user/{user_name}", response_model=List[schemas.Annotation])
 def get_annotations_by_user(user_name: str, db: Session = Depends(get_db)):
     annotations = db.query(models.Annotation).filter(
