@@ -5,8 +5,14 @@ from sqlalchemy import and_
 from sqlalchemy.orm import Session
 from .. import models, schemas
 from ..database import SessionLocal
+from .auth import get_current_user
 
-router = APIRouter(prefix="/articles", tags=["articles"])
+
+router = APIRouter(
+    prefix="/articles",
+    tags=["articles"],
+    dependencies=[Depends(get_current_user)]
+)
 
 def get_db():
     db = SessionLocal()

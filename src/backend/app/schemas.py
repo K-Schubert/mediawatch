@@ -29,7 +29,6 @@ class Article(ArticleBase):
 
 class CommentBase(BaseModel):
     annotation_id: int
-    user: str
     comment_text: str
 
 class CommentCreate(CommentBase):
@@ -38,6 +37,8 @@ class CommentCreate(CommentBase):
 class Comment(CommentBase):
     id: int
     timestamp: datetime
+    username: str
+    user_id: int
 
     class Config:
         orm_mode = True
@@ -48,7 +49,6 @@ class AnnotationBase(BaseModel):
     category: str
     subcategory: str
     article_metadata: Optional[dict] = None
-    user: str
 
 class AnnotationCreate(AnnotationBase):
     pass
@@ -57,6 +57,8 @@ class Annotation(AnnotationBase):
     id: int
     timestamp: datetime
     comments: List[Comment] = []
+    user_id: int
+    username: str
 
     class Config:
         orm_mode = True
@@ -70,3 +72,23 @@ class AnnotationUpdate(BaseModel):
 
     class Config:
         orm_mode = True
+
+class UserBase(BaseModel):
+    username: str
+
+class UserCreate(UserBase):
+    password: str
+
+class User(UserBase):
+    id: int
+    role: Optional[str] = None
+
+    class Config:
+        orm_mode = True
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    username: Optional[str] = None

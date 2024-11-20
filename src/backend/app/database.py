@@ -35,3 +35,10 @@ while retries < max_retries:
         time.sleep(5)
 else:
     raise Exception("Failed to connect to the database after multiple attempts.")
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()

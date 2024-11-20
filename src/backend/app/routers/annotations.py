@@ -3,8 +3,14 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from .. import models, schemas
 from ..database import SessionLocal
+from ..routers.auth import oauth2_scheme, get_user_from_token
+from .auth import get_current_user
 
-router = APIRouter(prefix="/annotations", tags=["annotations"])
+router = APIRouter(
+    prefix="/annotations",
+    tags=["annotations"],
+    dependencies=[Depends(get_current_user)]  # Require authentication
+)
 
 def get_db():
     db = SessionLocal()
@@ -14,15 +20,16 @@ def get_db():
         db.close()
 
 @router.post("/", response_model=schemas.Annotation)
-def create_annotation(annotation: schemas.AnnotationCreate, db: Session = Depends(get_db)):
+def create_annotation(annotation: schemas.AnnotationCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    current_user = get_user_from_token(token, db)
     db_annotation = models.Annotation(
         article_id=annotation.article_id,
         highlighted_text=annotation.highlighted_text,
         category=annotation.category,
         subcategory=annotation.subcategory,
         article_metadata=annotation.article_metadata,
-        user=annotation.user
-        # Do not include `timestamp` here; it will be set by the database.
+        user_id=current_user.id,
+        username=current_user.username  # Add this line
     )
     db.add(db_annotation)
     db.commit()
@@ -30,19 +37,25 @@ def create_annotation(annotation: schemas.AnnotationCreate, db: Session = Depend
     return db_annotation
 
 @router.delete("/{annotation_id}", response_model=schemas.Annotation)
-def delete_annotation(annotation_id: int, db: Session = Depends(get_db)):
+def delete_annotation(annotation_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    current_user = get_user_from_token(token, db)
     annotation = db.query(models.Annotation).filter(models.Annotation.id == annotation_id).first()
     if not annotation:
         raise HTTPException(status_code=404, detail="Annotation not found")
+    if annotation.user_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Not authorized to delete this annotation")
     db.delete(annotation)
     db.commit()
     return annotation
 
 @router.put("/{annotation_id}", response_model=schemas.Annotation)
-def update_annotation(annotation_id: int, updated_annotation: schemas.AnnotationUpdate, db: Session = Depends(get_db)):
+def update_annotation(annotation_id: int, updated_annotation: schemas.AnnotationUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    current_user = get_user_from_token(token, db)
     annotation = db.query(models.Annotation).filter(models.Annotation.id == annotation_id).first()
     if not annotation:
         raise HTTPException(status_code=404, detail="Annotation not found")
+    if annotation.user_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Not authorized to update this annotation")
 
     # Update only the fields provided
     if updated_annotation.highlighted_text is not None:
@@ -68,11 +81,13 @@ def get_annotations_by_article(article_id: int, db: Session = Depends(get_db)):
     return annotations
 
 @router.post("/comments/", response_model=schemas.Comment)
-def create_comment(comment: schemas.CommentCreate, db: Session = Depends(get_db)):
+def create_comment(comment: schemas.CommentCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    current_user = get_user_from_token(token, db)
     db_comment = models.Comment(
         annotation_id=comment.annotation_id,
-        user=comment.user,
-        comment_text=comment.comment_text
+        comment_text=comment.comment_text,
+        user_id=current_user.id,
+        username=current_user.username
     )
     db.add(db_comment)
     db.commit()

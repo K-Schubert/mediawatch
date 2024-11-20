@@ -1,6 +1,9 @@
 from fastapi import APIRouter, HTTPException
 
-router = APIRouter(prefix="/options", tags=["options"])
+router = APIRouter(
+    prefix="/options",
+    tags=["options"]
+)
 
 # Data for categories and subcategories
 categories = [

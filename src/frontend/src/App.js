@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Editor from './components/Editor';
 import SearchBar from './components/SearchBar';
+import LoginForm from './components/LoginForm';
 
 function AnnotationItem({ annotation, onDelete, onUpdate }) {
   const [comments, setComments] = useState(annotation.comments || []);
@@ -197,6 +198,12 @@ function App() {
   const [exportMenuOpen, setExportMenuOpen] = useState(false);
 
   const editorRef = useRef();
+  const [token, setToken] = useState(null);
+
+  const handleLogout = () => {
+    setToken(null);
+    delete axios.defaults.headers.common['Authorization'];
+  };
 
   useEffect(() => {
     axios.get('http://localhost:8000/options/categories')
@@ -516,8 +523,44 @@ function App() {
     return positions;
   };
 
+  const handleLogin = (username, password) => {
+    const data = new URLSearchParams();
+    data.append('username', username);
+    data.append('password', password);
+
+    axios.post('http://localhost:8000/auth/token', data)
+      .then(response => {
+        setToken(response.data.access_token);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`;
+      })
+      .catch(error => {
+        console.error('Login error:', error);
+        alert('Login failed. Please check your credentials.');
+      });
+  };
+
+  useEffect(() => {
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    } else {
+      delete axios.defaults.headers.common['Authorization'];
+    }
+  }, [token]);
+
+  if (!token) {
+    return (
+      <LoginForm onLogin={handleLogin} />
+    );
+  }
+
   return (
     <div style={{ position: 'relative', padding: '20px' }}>
+      {/* Add Logout Button */}
+      <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+        <button onClick={handleLogout} style={{ padding: '10px', cursor: 'pointer' }}>
+          Logout
+        </button>
+      </div>
       <SearchBar
         onArticlesFetched={handleArticlesFetched}
         onClearSearchTrigger={clearSearchTrigger}

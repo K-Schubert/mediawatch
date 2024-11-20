@@ -10,6 +10,8 @@ from sqlalchemy.orm import Session
 
 from ..database import SessionLocal
 from .. import models
+from .auth import get_current_user
+
 
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -22,7 +24,11 @@ def get_db():
     finally:
         db.close()
 
-router = APIRouter(prefix="/analyze", tags=["analyze"])
+router = APIRouter(
+    prefix="/analyze",
+    tags=["analyze"],
+    dependencies=[Depends(get_current_user)]
+)
 
 # Set your OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -128,7 +134,11 @@ Example Output:
 """
 
 @router.post("/")
-def analyze_article(article_id: int, db: Session = Depends(get_db)):
+def analyze_article(
+    article_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)  # Add current_user parameter
+):
     # Fetch the article text from the database
     article = db.query(models.Article).filter(models.Article.id == article_id).first()
     if not article:
@@ -176,14 +186,15 @@ def analyze_article(article_id: int, db: Session = Depends(get_db)):
             category=ann.category,
             subcategory=ann.subcategory,
             timestamp=datetime.utcnow().isoformat(),
-            user='placeholder_user_AI',  # Replace with actual user ID when login is implemented
+            user_id=current_user.id,  # Use the current user's ID
+            username=current_user.username,  # Use the current user's username
             article_metadata={"source": article.source, "title": article.title}  # Example metadata, customize as needed
-    )
+        )
         db.add(new_annotation)
         db.commit()
         db.refresh(new_annotation)
 
-        # Prepare the response dictionary, excluding article_metadata if it's None
+        # Update the response dictionary
         annotation_dict = {
             "id": new_annotation.id,
             "article_id": new_annotation.article_id,
@@ -191,9 +202,9 @@ def analyze_article(article_id: int, db: Session = Depends(get_db)):
             "category": new_annotation.category,
             "subcategory": new_annotation.subcategory,
             "timestamp": new_annotation.timestamp,
-            "user": new_annotation.user
+            "user_id": new_annotation.user_id,
+            "username": new_annotation.username
         }
-        # Optionally include article_metadata if not None
         if new_annotation.article_metadata:
             annotation_dict["article_metadata"] = new_annotation.article_metadata
 

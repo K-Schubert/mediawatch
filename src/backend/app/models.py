@@ -27,6 +27,17 @@ class Article(Base):
         UniqueConstraint('link', name='uq_link'),
     )
 
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    role = Column(String, default='user')
+
+    annotations = relationship('Annotation', back_populates='user')
+    comments = relationship('Comment', back_populates='user')
+
 class Annotation(Base):
     __tablename__ = 'annotations'
     id = Column(Integer, primary_key=True, index=True)
@@ -36,7 +47,9 @@ class Annotation(Base):
     subcategory = Column(String)
     article_metadata = Column(JSON)
     timestamp = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
-    user = Column(String)  # Placeholder for user identification
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    username = Column(String, nullable=False)  # Add this line
+    user = relationship('User', back_populates='annotations')
     comments = relationship('Comment', back_populates='annotation', cascade='all, delete-orphan')
 
     article = relationship('Article', back_populates='annotations')
@@ -45,7 +58,9 @@ class Comment(Base):
     __tablename__ = 'comments'
     id = Column(Integer, primary_key=True, index=True)
     annotation_id = Column(Integer, ForeignKey('annotations.id'))
-    user = Column(String)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    username = Column(String, nullable=False)  # Add this line
+    user = relationship('User', back_populates='comments')
     comment_text = Column(Text)
     timestamp = Column(DateTime(timezone=True), server_default=func.now())
 
