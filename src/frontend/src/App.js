@@ -29,6 +29,8 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
       category: editValues.category,
       subcategory: editValues.subcategory,
       highlighted_text: editValues.highlighted_text,
+      start_position: annotation.start_position, // Add this
+      end_position: annotation.end_position,     // Add this
       timestamp: new Date().toISOString(),
     };
 
@@ -244,21 +246,20 @@ function App() {
       editorRef.current.setContent(article.text);
     }
 
-    // Fetch annotations for the selected article
+    // Fetch and display annotations with exact positions
     axios.get(`http://localhost:8000/annotations/article/${article.id}`)
       .then(response => {
         setAnnotations(response.data);
 
-        // Highlight annotations in the editor
         if (editorRef.current && editorRef.current.addHighlight) {
           response.data.forEach(annotation => {
-            const { highlighted_text, category, id } = annotation;
-            const positions = findAllOccurrences(article.text, highlighted_text);
-            const color = getColorForCategory(category);
-
-            positions.forEach(({ from, to }) => {
-              editorRef.current.addHighlight(from, to, color, id);
-            });
+            const color = getColorForCategory(annotation.category);
+            editorRef.current.addHighlight(
+              annotation.start_position,
+              annotation.end_position,
+              color,
+              annotation.id
+            );
           });
         }
       })
@@ -274,19 +275,17 @@ function App() {
           console.log('Analysis result:', response.data);
           const newAnnotations = response.data;
 
-          // Update annotations state
           setAnnotations(prevAnnotations => [...prevAnnotations, ...newAnnotations]);
 
-          // Highlight annotations in the editor
           if (editorRef.current && editorRef.current.addHighlight) {
             newAnnotations.forEach(annotation => {
-              const { highlighted_text, category, id } = annotation;
-              const positions = findAllOccurrences(selectedArticle.text, highlighted_text);
-              const color = getColorForCategory(category);
-
-              positions.forEach(({ from, to }) => {
-                editorRef.current.addHighlight(from, to, color, id);
-              });
+              const color = getColorForCategory(annotation.category);
+              editorRef.current.addHighlight(
+                annotation.start_position,
+                annotation.end_position,
+                color,
+                annotation.id
+              );
             });
           }
         })
@@ -308,6 +307,8 @@ function App() {
       const annotation = {
         article_id: selectedArticle.id,
         highlighted_text: highlightData.text,
+        start_position: highlightData.from,  // Add position data
+        end_position: highlightData.to,      // Add position data
         category: selectedCategory,
         subcategory: selectedOption,
         article_metadata: selectedArticle,
@@ -323,13 +324,13 @@ function App() {
 
           // Add the highlight with the annotation id
           if (editorRef.current && editorRef.current.addHighlight) {
-            const { highlighted_text, category, id } = newAnnotation;
-            const positions = findAllOccurrences(selectedArticle.text, highlighted_text);
-            const color = getColorForCategory(category);
-
-            positions.forEach(({ from, to }) => {
-              editorRef.current.addHighlight(from, to, color, id);
-            });
+            const color = getColorForCategory(newAnnotation.category);
+            editorRef.current.addHighlight(
+              newAnnotation.start_position,
+              newAnnotation.end_position,
+              color,
+              newAnnotation.id
+            );
           }
 
           // Update annotations state
@@ -370,14 +371,14 @@ function App() {
       // Remove the old highlight
       editorRef.current.removeHighlight(updatedAnnotation.id);
 
-      // Add the new highlight
-      const { highlighted_text, category, id } = updatedAnnotation;
-      const positions = findAllOccurrences(selectedArticle.text, highlighted_text);
-      const color = getColorForCategory(category);
-
-      positions.forEach(({ from, to }) => {
-        editorRef.current.addHighlight(from, to, color, id);
-      });
+      // Add the new highlight with stored positions
+      const color = getColorForCategory(updatedAnnotation.category);
+      editorRef.current.addHighlight(
+        updatedAnnotation.start_position,
+        updatedAnnotation.end_position,
+        color,
+        updatedAnnotation.id
+      );
     }
   };
 
@@ -503,26 +504,6 @@ function App() {
     );
   };
 
-  // Helper function to find all occurrences of highlighted_text in article.text
-  const findAllOccurrences = (content, searchText) => {
-    const positions = [];
-    const normalizedContent = content.toLowerCase();
-    const normalizedSearchText = searchText.toLowerCase().trim();
-    let startIndex = 0;
-
-    while (startIndex < normalizedContent.length) {
-      const index = normalizedContent.indexOf(normalizedSearchText, startIndex);
-      if (index === -1) break;
-
-      const from = index;
-      const to = from + normalizedSearchText.length;
-      positions.push({ from, to });
-      startIndex = index + normalizedSearchText.length;
-    }
-
-    return positions;
-  };
-
   const handleLogin = (username, password) => {
     const data = new URLSearchParams();
     data.append('username', username);
@@ -546,6 +527,29 @@ function App() {
       delete axios.defaults.headers.common['Authorization'];
     }
   }, [token]);
+
+  const handleDeleteAllAnnotations = () => {
+    if (!selectedArticle) return;
+
+    if (window.confirm("Are you sure you want to delete all annotations for this article? This action cannot be undone.")) {
+      axios.delete(`http://localhost:8000/annotations/article/${selectedArticle.id}/all`)
+        .then(response => {
+          // Clear all annotations from state
+          setAnnotations([]);
+
+          // Remove all highlights from editor
+          if (editorRef.current) {
+            annotations.forEach(annotation => {
+              editorRef.current.removeHighlight(annotation.id);
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error deleting all annotations:', error);
+          alert('Failed to delete all annotations. Please try again.');
+        });
+    }
+  };
 
   if (!token) {
     return (
@@ -666,45 +670,60 @@ function App() {
           <div style={{ flex: 1, borderLeft: '1px solid #ccc', paddingLeft: '20px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <h3>Annotation History</h3>
-              {/* Export CSV Button */}
-              <div style={{ position: 'relative', display: 'inline-block' }}>
+              <div style={{ display: 'flex', gap: '10px' }}>
                 <button
-                  style={{ padding: '5px 10px', cursor: 'pointer' }}
-                  onClick={() => setExportMenuOpen(!exportMenuOpen)}
+                  onClick={handleDeleteAllAnnotations}
+                  style={{
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                    backgroundColor: '#ff4444',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px'
+                  }}
                 >
-                  Export CSV
+                  Delete All
                 </button>
-                {exportMenuOpen && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      right: 0,
-                      backgroundColor: 'white',
-                      border: '1px solid #ccc',
-                      boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-                      zIndex: 1,
-                    }}
+                {/* Existing Export CSV button */}
+                <div style={{ position: 'relative', display: 'inline-block' }}>
+                  <button
+                    style={{ padding: '5px 10px', cursor: 'pointer' }}
+                    onClick={() => setExportMenuOpen(!exportMenuOpen)}
                   >
+                    Export CSV
+                  </button>
+                  {exportMenuOpen && (
                     <div
-                      style={{ padding: '8px 16px', cursor: 'pointer' }}
-                      onClick={() => {
-                        setExportMenuOpen(false);
-                        exportCurrentDocumentAnnotations();
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        backgroundColor: 'white',
+                        border: '1px solid #ccc',
+                        boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+                        zIndex: 1,
                       }}
                     >
-                      Export Current Document Annotations
+                      <div
+                        style={{ padding: '8px 16px', cursor: 'pointer' }}
+                        onClick={() => {
+                          setExportMenuOpen(false);
+                          exportCurrentDocumentAnnotations();
+                        }}
+                      >
+                        Export Current Document Annotations
+                      </div>
+                      <div
+                        style={{ padding: '8px 16px', cursor: 'pointer' }}
+                        onClick={() => {
+                          setExportMenuOpen(false);
+                          exportAllUserAnnotations();
+                        }}
+                      >
+                        Export All My Annotations
+                      </div>
                     </div>
-                    <div
-                      style={{ padding: '8px 16px', cursor: 'pointer' }}
-                      onClick={() => {
-                        setExportMenuOpen(false);
-                        exportAllUserAnnotations();
-                      }}
-                    >
-                      Export All My Annotations
-                    </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
             {annotations.length > 0 ? (

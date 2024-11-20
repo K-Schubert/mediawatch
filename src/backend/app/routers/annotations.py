@@ -25,6 +25,8 @@ def create_annotation(annotation: schemas.AnnotationCreate, db: Session = Depend
     db_annotation = models.Annotation(
         article_id=annotation.article_id,
         highlighted_text=annotation.highlighted_text,
+        start_position=annotation.start_position,  # Add this
+        end_position=annotation.end_position,      # Add this
         category=annotation.category,
         subcategory=annotation.subcategory,
         article_metadata=annotation.article_metadata,
@@ -57,17 +59,20 @@ def update_annotation(annotation_id: int, updated_annotation: schemas.Annotation
     if annotation.user_id != current_user.id:
         raise HTTPException(status_code=403, detail="Not authorized to update this annotation")
 
-    # Update only the fields provided
+    # Update the fields
     if updated_annotation.highlighted_text is not None:
         annotation.highlighted_text = updated_annotation.highlighted_text
     if updated_annotation.category is not None:
         annotation.category = updated_annotation.category
     if updated_annotation.subcategory is not None:
         annotation.subcategory = updated_annotation.subcategory
+
+    # Always update positions
+    annotation.start_position = updated_annotation.start_position
+    annotation.end_position = updated_annotation.end_position
+
     if updated_annotation.timestamp is not None:
         annotation.timestamp = updated_annotation.timestamp
-    if updated_annotation.user is not None:
-        annotation.user = updated_annotation.user
 
     db.commit()
     db.refresh(annotation)
@@ -100,3 +105,24 @@ def get_annotations_by_user(user_name: str, db: Session = Depends(get_db)):
         models.Annotation.user == user_name
     ).order_by(models.Annotation.timestamp.asc()).all()
     return annotations
+
+@router.delete("/article/{article_id}/all", response_model=List[schemas.Annotation])
+def delete_all_article_annotations(article_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    current_user = get_user_from_token(token, db)
+    annotations = db.query(models.Annotation).filter(
+        models.Annotation.article_id == article_id,
+        models.Annotation.user_id == current_user.id
+    ).all()
+
+    if not annotations:
+        raise HTTPException(status_code=404, detail="No annotations found for this article")
+
+    # Store annotations before deletion for return value
+    deleted_annotations = [annotation for annotation in annotations]
+
+    # Delete all annotations
+    for annotation in annotations:
+        db.delete(annotation)
+
+    db.commit()
+    return deleted_annotations
