@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { customTheme } from '../styles/theme';
+import { CSVLink } from 'react-csv';
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -47,14 +48,34 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
+const ExportButton = styled.button`
+  background-color: ${customTheme.colors.primary};
+  color: ${customTheme.colors.onPrimary};
+  border: none;
+  padding: ${customTheme.spacing.sm};
+  border-radius: ${customTheme.borderRadius.sm};
+  cursor: pointer;
+  margin-bottom: ${customTheme.spacing.md};
+`;
+
 function VocabularyModal({ isOpen, onClose, data }) {
   if (!isOpen) return null;
+
+  const headers = [
+    { label: "N-Gram", key: "term" },
+    { label: "Count", key: "count" },
+    { label: "Category", key: "category" },
+    { label: "Description", key: "description" }
+  ];
 
   return (
     <ModalOverlay>
       <ModalContent>
         <CloseButton onClick={onClose}>&times;</CloseButton>
         <h2>Vocabulary Analysis</h2>
+        <CSVLink data={data} headers={headers} filename={"vocabulary_analysis.csv"}>
+          <ExportButton>Export CSV</ExportButton>
+        </CSVLink>
         <Table>
           <thead>
             <tr>
