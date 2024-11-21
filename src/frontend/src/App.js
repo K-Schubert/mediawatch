@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm';
 import { ThemeProvider } from 'styled-components';
 import { customTheme } from './styles/theme';
 import styled from 'styled-components';
+import VocabularyModal from './components/VocabularyModal';
 
 const StyledButton = styled.button`
   padding: ${props => props.small ? '6px 12px' : '8px 16px'};
@@ -311,6 +312,9 @@ function App() {
 
   const editorRef = useRef();
   const [token, setToken] = useState(null);
+
+  const [isVocabularyModalOpen, setIsVocabularyModalOpen] = useState(false);
+  const [vocabularyData, setVocabularyData] = useState([]);
 
   const handleLogout = () => {
     setToken(null);
@@ -661,6 +665,22 @@ function App() {
     }
   };
 
+  const handleAnalyzeVocabulary = () => {
+    if (selectedArticle && selectedArticle.id) {
+      axios.post(`http://localhost:8000/analyze/vocabulary?article_id=${selectedArticle.id}`)  // Updated this line
+        .then(response => {
+          setVocabularyData(response.data);
+          setIsVocabularyModalOpen(true);
+        })
+        .catch(error => {
+          console.error('Error analyzing vocabulary:', error);
+          alert('Failed to analyze vocabulary. Please try again.');
+        });
+    } else {
+      alert('No article selected for vocabulary analysis.');
+    }
+  };
+
   if (!token) {
     return (
       <ThemeProvider theme={customTheme}>
@@ -725,7 +745,10 @@ function App() {
             <div style={{ flex: 3, marginRight: customTheme.spacing.md }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h2>Article Details</h2>
-                <StyledButton onClick={handleAnalyze}>Analyze</StyledButton>
+                <div>
+                  <StyledButton onClick={handleAnalyze} style={{ marginRight: '10px' }}>Analyze Article</StyledButton>
+                  <StyledButton onClick={handleAnalyzeVocabulary}>Analyze Vocabulary</StyledButton>
+                </div>
               </div>
               <div style={{ marginTop: '10px' }}>
                 {formatMetadata(selectedArticle)}
@@ -846,6 +869,12 @@ function App() {
             </div>
           </div>
         )}
+        {/* Vocabulary Modal */}
+        <VocabularyModal
+          isOpen={isVocabularyModalOpen}
+          onClose={() => setIsVocabularyModalOpen(false)}
+          data={vocabularyData}
+        />
       </div>
     </ThemeProvider>
   );

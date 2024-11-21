@@ -5,13 +5,16 @@ from datetime import datetime
 from pydantic import BaseModel
 import openai
 
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Query
 from sqlalchemy.orm import Session
 
 from ..database import SessionLocal
 from .. import models
 from .auth import get_current_user
+from ..glossary import DFAE_GLOSSARY
 
+from collections import Counter
+import re
 
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -217,3 +220,38 @@ def analyze_article(
         saved_annotations.append(annotation_dict)
 
     return saved_annotations
+
+@router.post("/vocabulary")
+def analyze_vocabulary(
+    article_id: int = Query(..., description="The ID of the article to analyze"),
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+):
+    # Fetch the article text
+    article = db.query(models.Article).filter(models.Article.id == article_id).first()
+    if not article:
+        raise HTTPException(status_code=404, detail="Article not found")
+
+    text = article.text.lower()
+    words = re.findall(r'\b\w+\b', text)
+
+    # Generate n-grams from 1 to 7
+    ngram_results = []
+    for n in range(1, 8):
+        ngrams = [' '.join(words[i:i+n]) for i in range(len(words) - n + 1)]
+        ngram_counts = Counter(ngrams)
+
+        # Check each key in DFAE_GLOSSARY against current n-grams
+        for term in DFAE_GLOSSARY.keys():
+            term = term.lower()
+            if term in ngram_counts:
+                ngram_results.append({
+                    "term": term,
+                    "count": ngram_counts[term],
+                    "n_gram": n,
+                    "category": DFAE_GLOSSARY[term]["category"],
+                    "description": DFAE_GLOSSARY[term]["description"],
+                    "source": DFAE_GLOSSARY[term]["source"]
+                })
+
+    return ngram_results
