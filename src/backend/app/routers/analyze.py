@@ -35,10 +35,13 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 client = openai.OpenAI()
 
+# Update the AnnotationBase class to include positions
 class AnnotationBase(BaseModel):
     category: str
     subcategory: str
     highlighted_text: str
+    start_position: int
+    end_position: int
     article_id: int
     user: str
 
@@ -99,6 +102,7 @@ Category D: Asymmetry in appeal to empathy
     - Personification of victims
 """
 
+# Update the prompt to request position information
 prompt = """
 Analyze the following article text and extract any guard-dog tactics as annotations.
 
@@ -113,7 +117,8 @@ Guard-Dog Tactics to Detect:
 Instructions:
 1. Extract all guard-dog tactics in the article.
 2. Be concise and very specific; only include tactics directly present and related to the article.
-3. Provide the output as a JSON array of annotations with fields: "category", "subcategory", "highlighted_text".
+3. Find the start and end positions of each highlighted text in the original article.
+4. Provide the output as a JSON array of annotations with fields: "category", "subcategory", "highlighted_text", "start_position", "end_position".
 
 Category can be either ["A", "B", "C", "D"].
 Subcategory can be any of the tactics listed above with the corresponding number in parentheses.
@@ -123,12 +128,9 @@ Example Output:
     {{
         "category": "A",
         "subcategory": "Euphemism",
-        "highlighted_text": "the phrase used in the article"
-    }},
-    {{
-        "category": "B",
-        "subcategory": "Scapegoating",
-        "highlighted_text": "another phrase from the article"
+        "highlighted_text": "the phrase used in the article",
+        "start_position": 123,
+        "end_position": 156
     }}
 ]
 """
@@ -183,6 +185,8 @@ def analyze_article(
         new_annotation = models.Annotation(
             article_id=article_id,
             highlighted_text=ann.highlighted_text,
+            start_position=ann.start_position or 0,  # Provide default value if None
+            end_position=ann.end_position or len(ann.highlighted_text),  # Provide default value if None
             category=ann.category,
             subcategory=ann.subcategory,
             timestamp=datetime.utcnow().isoformat(),
@@ -199,6 +203,8 @@ def analyze_article(
             "id": new_annotation.id,
             "article_id": new_annotation.article_id,
             "highlighted_text": new_annotation.highlighted_text,
+            "start_position": new_annotation.start_position,  # Add this
+            "end_position": new_annotation.end_position,      # Add this
             "category": new_annotation.category,
             "subcategory": new_annotation.subcategory,
             "timestamp": new_annotation.timestamp,
