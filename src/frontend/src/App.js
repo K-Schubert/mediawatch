@@ -589,12 +589,12 @@ function App() {
 
   const getColorForCategory = (categoryId) => {
     const categoryColors = {
-      'A': '#FFD700', // Gold
-      'B': '#ADFF2F', // GreenYellow
-      'C': '#87CEFA', // LightSkyBlue
-      'D': '#FFB6C1', // LightPink
+      'A': 'rgba(255, 223, 0, 0.3)',  // Soft gold
+      'B': 'rgba(132, 255, 132, 0.3)', // Soft green
+      'C': 'rgba(135, 206, 250, 0.3)', // Soft blue
+      'D': 'rgba(255, 182, 193, 0.3)', // Soft pink
     };
-    return categoryColors[categoryId.trim()] || '#FFFF00'; // Default to yellow
+    return categoryColors[categoryId.trim()] || 'rgba(255, 255, 0, 0.2)'; // Default to soft yellow
   };
 
   const formatMetadata = (article) => {
