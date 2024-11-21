@@ -100,7 +100,7 @@ async def upload_csv(file: UploadFile = File(...), db: Session = Depends(get_db)
     for row in reader:
         # Validate required fields
         if not row['source'] or not row['link'] or not row['title']:
-            continue  # Skip rows with missing required fields
+            continue
 
         article = models.Article(
             source=row['source'],

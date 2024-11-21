@@ -9,7 +9,7 @@ from .auth import get_current_user
 router = APIRouter(
     prefix="/annotations",
     tags=["annotations"],
-    dependencies=[Depends(get_current_user)]  # Require authentication
+    dependencies=[Depends(get_current_user)]
 )
 
 def get_db():
@@ -25,13 +25,13 @@ def create_annotation(annotation: schemas.AnnotationCreate, db: Session = Depend
     db_annotation = models.Annotation(
         article_id=annotation.article_id,
         highlighted_text=annotation.highlighted_text,
-        start_position=annotation.start_position,  # Add this
-        end_position=annotation.end_position,      # Add this
+        start_position=annotation.start_position,
+        end_position=annotation.end_position,
         category=annotation.category,
         subcategory=annotation.subcategory,
         article_metadata=annotation.article_metadata,
         user_id=current_user.id,
-        username=current_user.username  # Add this line
+        username=current_user.username
     )
     db.add(db_annotation)
     db.commit()

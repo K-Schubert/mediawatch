@@ -43,8 +43,8 @@ class Annotation(Base):
     id = Column(Integer, primary_key=True, index=True)
     article_id = Column(Integer, ForeignKey('articles.id'))
     highlighted_text = Column(Text)
-    start_position = Column(Integer, nullable=False)  # Update this
-    end_position = Column(Integer, nullable=False)    # Update this
+    start_position = Column(Integer, nullable=False)
+    end_position = Column(Integer, nullable=False)
     category = Column(String)
     subcategory = Column(String)
     article_metadata = Column(JSON)
@@ -61,7 +61,7 @@ class Comment(Base):
     id = Column(Integer, primary_key=True, index=True)
     annotation_id = Column(Integer, ForeignKey('annotations.id'))
     user_id = Column(Integer, ForeignKey('users.id'))
-    username = Column(String, nullable=False)  # Add this line
+    username = Column(String, nullable=False)
     user = relationship('User', back_populates='comments')
     comment_text = Column(Text)
     timestamp = Column(DateTime(timezone=True), server_default=func.now())

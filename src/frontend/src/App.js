@@ -184,7 +184,7 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
               value={editValues.category}
               onChange={(e) => {
                 handleInputChange('category', e.target.value);
-                handleInputChange('subcategory', ''); // Reset subcategory when category changes
+                handleInputChange('subcategory', '');
               }}
               style={{ padding: '5px', width: '100%', marginTop: '5px' }}
             >
@@ -417,8 +417,8 @@ function App() {
       const annotation = {
         article_id: selectedArticle.id,
         highlighted_text: highlightData.text,
-        start_position: highlightData.from,  // Add position data
-        end_position: highlightData.to,      // Add position data
+        start_position: highlightData.from,
+        end_position: highlightData.to,
         category: selectedCategory,
         subcategory: selectedOption,
         article_metadata: selectedArticle,
@@ -684,7 +684,7 @@ function App() {
         <SearchBar
           onArticlesFetched={handleArticlesFetched}
           onClearSearchTrigger={clearSearchTrigger}
-          onArticleSelect={handleArticleSelect}  // Pass the function here
+          onArticleSelect={handleArticleSelect}
         />
         {articles.length > 0 && (
           <div style={{

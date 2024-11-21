@@ -139,7 +139,7 @@ Example Output:
 def analyze_article(
     article_id: int,
     db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user)  # Add current_user parameter
+    current_user: models.User = Depends(get_current_user)
 ):
     # Fetch the article text from the database
     article = db.query(models.Article).filter(models.Article.id == article_id).first()
@@ -185,14 +185,14 @@ def analyze_article(
         new_annotation = models.Annotation(
             article_id=article_id,
             highlighted_text=ann.highlighted_text,
-            start_position=ann.start_position or 0,  # Provide default value if None
-            end_position=ann.end_position or len(ann.highlighted_text),  # Provide default value if None
+            start_position=ann.start_position or 0,
+            end_position=ann.end_position or len(ann.highlighted_text),
             category=ann.category,
             subcategory=ann.subcategory,
             timestamp=datetime.utcnow().isoformat(),
-            user_id=current_user.id,  # Use the current user's ID
-            username=current_user.username,  # Use the current user's username
-            article_metadata={"source": article.source, "title": article.title}  # Example metadata, customize as needed
+            user_id=current_user.id,
+            username=current_user.username,
+            article_metadata={"source": article.source, "title": article.title}
         )
         db.add(new_annotation)
         db.commit()
@@ -203,8 +203,8 @@ def analyze_article(
             "id": new_annotation.id,
             "article_id": new_annotation.article_id,
             "highlighted_text": new_annotation.highlighted_text,
-            "start_position": new_annotation.start_position,  # Add this
-            "end_position": new_annotation.end_position,      # Add this
+            "start_position": new_annotation.start_position,
+            "end_position": new_annotation.end_position,
             "category": new_annotation.category,
             "subcategory": new_annotation.subcategory,
             "timestamp": new_annotation.timestamp,

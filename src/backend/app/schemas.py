@@ -67,8 +67,8 @@ class Annotation(AnnotationBase):
 
 class AnnotationUpdate(BaseModel):
     highlighted_text: Optional[str] = None
-    start_position: int  # Change to required
-    end_position: int    # Change to required
+    start_position: int
+    end_position: int
     category: Optional[str] = None
     subcategory: Optional[str] = None
     timestamp: Optional[datetime] = None

@@ -4,7 +4,7 @@ import { DOMParser as ProseMirrorDOMParser, Schema } from 'prosemirror-model';
 import { EditorView } from 'prosemirror-view';
 import { Decoration, DecorationSet } from 'prosemirror-view';
 import { Plugin, PluginKey } from 'prosemirror-state';
-import 'prosemirror-view/style/prosemirror.css'; // Basic editor styling
+import 'prosemirror-view/style/prosemirror.css';
 import { customTheme } from '../styles/theme';
 
 // Initialize pluginKey at module level
@@ -63,7 +63,7 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
 
     // Create a document node from the initial content
     const contentElement = document.createElement('div');
-    contentElement.textContent = initialContent; // Populate with initial content
+    contentElement.textContent = initialContent;
     const doc = ProseMirrorDOMParser.fromSchema(schema).parse(contentElement);
 
     viewRef.current = new EditorView(editorContainerRef.current, {
@@ -156,7 +156,7 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
     // Create a new EditorState
     const newState = EditorState.create({
       doc,
-      plugins: viewRef.current.state.plugins, // Keep the same plugins
+      plugins: viewRef.current.state.plugins,
     });
 
     // Update the editor's state
