@@ -120,12 +120,17 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
     if (!viewRef.current) return;
     const { state, dispatch } = viewRef.current;
 
-    const decoration = Decoration.inline(from, to, {
+    // Ensure positions are within document bounds
+    const docLength = state.doc.content.size;
+    const safeFrom = Math.max(0, Math.min(from, docLength));
+    const safeTo = Math.max(safeFrom, Math.min(to, docLength));
+
+    const decoration = Decoration.inline(safeFrom, safeTo, {
       style: `background-color: ${color};`,
     }, { annotationId });
 
     decorationsRef.current = decorationsRef.current.add(state.doc, [decoration]);
-    dispatch(state.tr.setMeta(pluginKey, {})); // Trigger plugin to reapply decorations
+    dispatch(state.tr.setMeta(pluginKey, { type: 'addHighlight' }));
   };
 
   const removeHighlight = (annotationId) => {
@@ -134,7 +139,7 @@ const Editor = React.forwardRef(({ initialContent = '', onTextSelect }, ref) => 
 
     const newDecorations = decorationsRef.current.find().filter(deco => deco.spec.annotationId !== annotationId);
     decorationsRef.current = DecorationSet.create(state.doc, newDecorations);
-    dispatch(state.tr.setMeta(pluginKey, {})); // Trigger plugin to reapply decorations
+    dispatch(state.tr.setMeta(pluginKey, { type: 'removeHighlight' }));
   };
 
   const setContent = (newContent) => {

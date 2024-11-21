@@ -59,20 +59,18 @@ def update_annotation(annotation_id: int, updated_annotation: schemas.Annotation
     if annotation.user_id != current_user.id:
         raise HTTPException(status_code=403, detail="Not authorized to update this annotation")
 
-    # Update the fields
-    if updated_annotation.highlighted_text is not None:
-        annotation.highlighted_text = updated_annotation.highlighted_text
+    # Update only category, subcategory and timestamp
     if updated_annotation.category is not None:
         annotation.category = updated_annotation.category
     if updated_annotation.subcategory is not None:
         annotation.subcategory = updated_annotation.subcategory
-
-    # Always update positions
-    annotation.start_position = updated_annotation.start_position
-    annotation.end_position = updated_annotation.end_position
-
     if updated_annotation.timestamp is not None:
         annotation.timestamp = updated_annotation.timestamp
+
+    # Keep existing positions and text
+    annotation.start_position = annotation.start_position
+    annotation.end_position = annotation.end_position
+    annotation.highlighted_text = annotation.highlighted_text
 
     db.commit()
     db.refresh(annotation)

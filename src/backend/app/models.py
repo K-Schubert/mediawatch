@@ -43,12 +43,14 @@ class Annotation(Base):
     id = Column(Integer, primary_key=True, index=True)
     article_id = Column(Integer, ForeignKey('articles.id'))
     highlighted_text = Column(Text)
+    start_position = Column(Integer, nullable=False)  # Update this
+    end_position = Column(Integer, nullable=False)    # Update this
     category = Column(String)
     subcategory = Column(String)
     article_metadata = Column(JSON)
     timestamp = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    username = Column(String, nullable=False)  # Add this line
+    username = Column(String, nullable=False)
     user = relationship('User', back_populates='annotations')
     comments = relationship('Comment', back_populates='annotation', cascade='all, delete-orphan')
 

@@ -43,8 +43,34 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
   const [editValues, setEditValues] = useState({
     category: annotation.category,
     subcategory: annotation.subcategory,
-    highlighted_text: annotation.highlighted_text,
   });
+
+  const [categories, setCategories] = useState([]);
+  const [subcategories, setSubcategories] = useState({});
+
+  // Fetch categories when component mounts
+  useEffect(() => {
+    axios.get('http://localhost:8000/options/categories')
+      .then(response => {
+        setCategories(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching categories:', error);
+      });
+  }, []);
+
+  // Fetch subcategories when category changes
+  useEffect(() => {
+    if (editValues.category) {
+      axios.get(`http://localhost:8000/options/subcategories/${editValues.category}`)
+        .then(response => {
+          setSubcategories(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching subcategories:', error);
+        });
+    }
+  }, [editValues.category]);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -58,10 +84,11 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
     const updatedData = {
       category: editValues.category,
       subcategory: editValues.subcategory,
-      highlighted_text: editValues.highlighted_text,
-      start_position: annotation.start_position, // Add this
-      end_position: annotation.end_position,     // Add this
       timestamp: new Date().toISOString(),
+      // Keep the original positions
+      start_position: annotation.start_position,
+      end_position: annotation.end_position,
+      highlighted_text: annotation.highlighted_text
     };
 
     axios.put(`http://localhost:8000/annotations/${annotation.id}`, updatedData)
@@ -79,7 +106,6 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
     setEditValues({
       category: annotation.category,
       subcategory: annotation.subcategory,
-      highlighted_text: annotation.highlighted_text,
     });
     setIsEditing(false);
   };
@@ -154,27 +180,48 @@ function AnnotationItem({ annotation, onDelete, onUpdate }) {
         <>
           <div>
             <label>Category:</label>
-            <input
-              type="text"
+            <select
               value={editValues.category}
-              onChange={(e) => handleInputChange('category', e.target.value)}
-            />
+              onChange={(e) => {
+                handleInputChange('category', e.target.value);
+                handleInputChange('subcategory', ''); // Reset subcategory when category changes
+              }}
+              style={{ padding: '5px', width: '100%', marginTop: '5px' }}
+            >
+              <option value="">--Choose a category--</option>
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>{cat.name}</option>
+              ))}
+            </select>
           </div>
-          <div>
+          <div style={{ marginTop: '10px' }}>
             <label>Subcategory:</label>
-            <input
-              type="text"
+            <select
               value={editValues.subcategory}
               onChange={(e) => handleInputChange('subcategory', e.target.value)}
-            />
+              style={{ padding: '5px', width: '100%', marginTop: '5px' }}
+            >
+              <option value="">--Choose a subcategory--</option>
+              {Object.entries(subcategories).map(([header, options]) => (
+                <optgroup key={header} label={header}>
+                  {options.map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
           </div>
-          <div>
+          <div style={{ marginTop: '10px' }}>
             <label>Highlighted Text:</label>
-            <textarea
-              value={editValues.highlighted_text}
-              onChange={(e) => handleInputChange('highlighted_text', e.target.value)}
-              style={{ width: '100%', padding: '5px' }}
-            />
+            <p style={{
+              backgroundColor: '#f9f9f9',
+              padding: '5px',
+              marginTop: '5px',
+              border: '1px solid #ccc',
+              borderRadius: '4px'
+            }}>
+              {annotation.highlighted_text}
+            </p>
           </div>
           <div style={{ marginTop: '10px' }}>
             <StyledButton onClick={handleSave} style={{ marginRight: '10px' }}>Save</StyledButton>

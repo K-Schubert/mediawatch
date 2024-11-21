@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from datetime import datetime
 
 class ArticleBase(BaseModel):
@@ -46,9 +46,11 @@ class Comment(CommentBase):
 class AnnotationBase(BaseModel):
     article_id: int
     highlighted_text: str
+    start_position: int
+    end_position: int
     category: str
     subcategory: str
-    article_metadata: Optional[dict] = None
+    article_metadata: Optional[Dict[str, Any]] = None
 
 class AnnotationCreate(AnnotationBase):
     pass
@@ -65,6 +67,8 @@ class Annotation(AnnotationBase):
 
 class AnnotationUpdate(BaseModel):
     highlighted_text: Optional[str] = None
+    start_position: int  # Change to required
+    end_position: int    # Change to required
     category: Optional[str] = None
     subcategory: Optional[str] = None
     timestamp: Optional[datetime] = None
