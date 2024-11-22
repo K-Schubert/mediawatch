@@ -746,8 +746,8 @@ function App() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h2>Article Details</h2>
                 <div>
-                  <StyledButton onClick={handleAnalyze} style={{ marginRight: '10px' }}>Analyze Article</StyledButton>
-                  <StyledButton onClick={handleAnalyzeVocabulary}>Analyze Vocabulary</StyledButton>
+                  <StyledButton onClick={handleAnalyze} style={{ marginRight: '10px' }}>AI Analysis</StyledButton>
+                  <StyledButton onClick={handleAnalyzeVocabulary}>Vocabulary Analysis</StyledButton>
                 </div>
               </div>
               <div style={{ marginTop: '10px' }}>
